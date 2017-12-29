@@ -63,7 +63,19 @@ var boxofficee={
     },
     deleteAccount:function(id,callback){
         return db.query("delete from customer_tbl where pk_email_id=?",[id],callback);
-    }
+    },
+    //home page get info of movie and language
+    getComingsoon:function(callback){
+ 
+         return db.query("select  l.*, m.* from language_tbl l,movie_tbl m where m.fk_Language_id=l.pk_Language_id and m.Type=0 ",callback);
+ 
+    },
+    getNowShowing:function(callback){
+         return db.query("select  l.*, m.* from language_tbl l,movie_tbl m where m.fk_Language_id=l.pk_Language_id and m.Type=1 ",callback);
+    },
+    
+       
+    
  /*updateAccount:function(id,Task,callback){
  }
 */
