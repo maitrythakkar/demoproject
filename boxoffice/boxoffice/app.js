@@ -13,10 +13,11 @@ var movie=require('./routes/movie_tbl_routes');
 var show=require('./routes/show_tbl_routes');
 var theater=require('./routes/theater_tbl_routes');
 var customer=require('./routes/customer_tbl_routes');
- var feedback=require('./routes/feedback_tbl_routes');
- var commingsoon=require('./routes/commingsoon_routes');
- var nowshowing=require('./routes/nowshowing_routes');
- var movieAndLanguage=require('./routes/movieAndLanguage');
+var feedback=require('./routes/feedback_tbl_routes');
+var login=require('./routes/login_routes');
+
+ 
+
 var app = express();
 
 // view engine setup
@@ -40,9 +41,8 @@ app.use('/show',show);
 app.use('/theater',theater);
 app.use('/feedback',feedback);
 app.use('/language',language);
-app.use('/commingsoon',commingsoon);
-app.use('/nowshowing',nowshowing);
-app.use('/movieAndLanguage',movieAndLanguage);
+app.use('/login',login);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
