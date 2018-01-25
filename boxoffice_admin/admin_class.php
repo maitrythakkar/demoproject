@@ -72,11 +72,27 @@ class movie_booking
         return $result;
         
     } 
+     public function proupdate($_pname,$_pcolor,$_pprice,$_pmanu,$_pwarra,$_psoh,$_pimg,$_des,$_fk_cat_id,$_pid)
+    {
+        $conn=database::connection();
+        $sql="update product_tbl set pname='". $_pname  ."',pcolor='". $_pcolor ."',prize='". $_pprice ."',manu='". $_pmanu ."',warr='". $_pwarra ."',soh='". $_psoh ."',image='". $_pimg ."',des='" . $_des ."',fk_cat_id='". $_fk_cat_id ."' where pid='".  $_pid ."'";
+        $res=$conn->query($sql);
+         return $res;    
+    }
    public function deleteLanguage($id)
     {
         $con=movie_booking::connect();
         $result=$con->query("delete from language_tbl where pk_Language_id=".$id);       
         return $result;
+    }
+     public function updatelanguage($_Language_name)
+    {
+        $con=movie_booking::connect();
+        $query="update language_tbl set Language_name='". $_Language_name  ."' where pk_Language_id='".$_pk_Language_id."'";
+        echo $query;
+        $result=$con->query();
+        return $result;
+    
     }
      public function getAllTheater()
     {

@@ -1,10 +1,7 @@
-<?php
-session_start();
-//$eml=$_SESSION["txteml"];
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
+
 
 <script src="js/jquery-3.2.0.js" ></script>
 
@@ -61,6 +58,19 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 }
 </style>
 <body  >
+	<?php
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    $_eml=$_POST["txteml"];
+
+
+require 'user_email.php';
+$obj=new database();
+$res=$obj->forgetpassword($_eml);
+
+}
+?>
+	
 	
 						
 					</ul>
@@ -68,59 +78,26 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			
 		<div  id="page-wrapper">
 			<div class="main-page login-page ">
-				<h3 class="title1">SignIn Page</h3>
+				<h3 class="title1">Forgot your password?</h3>
 				<div class="widget-shadow">
 					<div class="login-top">
-						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
+						<h4><img src="img1.png" height="70px" width="70px"> </h4>
 					</div>
 					<div class="login-body">
-						<form action="login.php" method="POST" class="center">
-							<input type="text" class="user"  id="pk_email_id" placeholder="Enter your email" required="">
-							<input type="password"  id="Pass" class="lock" placeholder="password">
-							<input type="submit" name="Sign In" value="Sign In">
+						<form action="sendemail.php" method="POST" class="center">
+							<input type="text" class="user"  id="txteml" placeholder="Enter your email" required="">
+						
+							<input type="submit" name="forgotpass" value="Send verification Link">
 							<div class="forgot-grid">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-								<div class="forgot">
-									<a href="forgetpass.php">forgot password?</a>
-								</div>
+								
+							
 								<div class="clearfix"> </div>
 							</div>
 						</form>
 					</div>
 				</div>
 				
-				<div class="login-page-bottom">
-					<h5> - OR -</h5>
-					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
-					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
-				</div>
-			</div>
-		</div>
-		<!--footer-->
-		<div class="footer">
-		   <p>&copy; 2016 Novus Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts</a></p>
-		</div>
-        <!--//footer-->
-	</div>
-	<!-- Classie -->
-		<script src="js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				body = document.body;
-				
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
 			
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
 		</script>
 	<!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>

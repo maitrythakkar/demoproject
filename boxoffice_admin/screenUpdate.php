@@ -33,8 +33,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="js/metisMenu.min.js"></script>
 <script src="js/custom.js"></script>
 <link href="css/custom.css" rel="stylesheet">
-
-
+<style>
+a
+{
+	color:white;
+}
+a:hover
+{
+color:white;
+}
+</style>
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
@@ -70,7 +78,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="addMovie.php">Add Movie</a>
 								</li>
 								<li>
-									<a href="movieUpdate.php">Update Movie</a>
+									<a href="updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -94,7 +102,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="screenDb.php">Display Screen</a>
+									<a href="screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
 									<a href="screenAdd.php">Add Screen</a>
@@ -157,72 +165,116 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         include 'shared/menu.php';
 
     ?>
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
-      <?php
-        require 'admin_class.php';
-        $obj=new movie_booking();
-        $result=$obj->getAllMovie();
-    ?>
+     <?php
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+       $con = new mysqli("localhost","root","","boxoffice");
+        if($con->connect_error)
+        {
+            echo "something went wrong";
+        }
+      $_pk_Movie_id=$_POST["txtpk_Movie_id"];
+      echo $_pk_Movie_id;
+      $_Movie_name=$_POST["txtMovie_name"];
+      echo $_Movie_name;
+      $_Director=$_POST["txtDirector"];
+      
+      $_Producer=$_POST["txtProducer"];
+      $_Cast=$_POST["txtCast"];
+      $_Duration=$_POST["txtDuration"];
+      $_Story=$_POST["txtStory"];
+      $_Type=$_POST["txtType"];
+      $_fk_Language_id=$_POST["txtfk_Language_id"];
+      $_Rating=$_POST["txtRating"];  
+       $target_dir="shared/images/";
+            $target_file=$target_dir . basename($_FILES["txtpimg"]["name"]);
+            echo $target_file;
+
+            if(move_uploaded_file($_FILES["txtpimg"]["tmp_name"] , $target_file))
+            {  
+   
+                  
+      
+      require 'admin_class.php';
+      $obj=new movie_booking();
+      $res=$obj->addMovie($_pk_Movie_id,$_Movie_name,$_Director,$target_file,$_Producer,$_Cast,$_Duration,$_Story,$_Type,$_fk_Language_id,$_Rating );
+      echo $res;
+      
+      if($res===true)
+      {
+          header('location:movieDb.php');
+      }
+      else
+      {
+          echo "Unsuccessful";
+          
+      }
+            }
+    }
+      ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-	<div align="right">	
-  <button type="button" class="btn btn-primary">
-  <a style="color:white" href="addMovie.php"><span>Add Movie</span></a>
-  </button>
-  <button type="button" class="btn btn-primary">Delete All</button>
-  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  </div>
+	<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_Movie_id" placeholder="Enter Movie ID">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtMovie_name" placeholder="Enter Movie Name">
+								</div>
+								<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Director Name</b></label>
+									<input class="form-control" id="register-password" type="text" name="txtDirector" placeholder="Enter Director Name">
+								</div>
+							<!--	<div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Image Path</b></label>
+									<input class="form-control" id="register-password2" type="file" name="txtImg_path" placeholder="Enter Image Path">
+								</div>-->
+                                <div class="form-group">
+                                <input type="file" name="txtpimg" required class="form-control" placeholder="Ente Product Image
+    " aria-label="Amount (to the nearest dollar)">
+    </div>
+                	<div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Producer Name </b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtProducer" placeholder="Enter Producer Name ">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Cast </b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtCast" placeholder="Enter Cast ">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Duration</b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtDuration" placeholder="Enter Duration ">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Story</b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtStory" placeholder="Enter Story ">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Type</b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtType" placeholder="Enter Type ">
+                </div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtfk_Language_id" placeholder="Enter Language Name">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Rating</b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtRating" placeholder="Enter Rating">
+								</div>
+								<div class="form-group">
+									<button type="submit" name="btninsert" value="Add" class="btn pull-right">Insert</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
 
-				<div class="tables">
-					
-					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						
-						<table class="table table-hover"> 
-                        <thead> 
-                            <tr> 
-                                 
-                                     <th>Movie name</th>
-                                    <th>Director</th>
-                                     <th>Image</th>
-                                    <th>Producer</th>
-                                    <th>Cast</th>
-                                    <th>Duration</th>
-                                    <th>Strory</th>
-                                    <th>Type</th>
-                                    <th>Language</th>
-                                    <th>Rating</th>
-                                    <th>Operation</th>
-                  
-                             </tr> 
-                         </thead> 
-                         <tbody> 
-            <?php
-              while($row=$result->fetch_assoc())
-              {
-               echo '<tr>';
-                echo '<td>'. $row["Movie_name"] .'</td>';
-                  echo '<td>'. $row["Director"] .'</td>';
-                  echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
-                  echo '<td>'. $row["Producer"] .'</td>';
-                  
-                  echo '<td>'. $row["Cast"] .'</td>';
-                   echo '<td>'. $row["Duration"] .'</td>';
-                    echo '<td>'. $row["Story"] .'</td>';
-                     echo '<td>'. $row["Type"] .'</td>';
-                      
-                      
-                      echo '<td>'. $row["Rating"] .'</td>';
-					  echo '<td><a href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieUpdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               
-               echo '</tr>';
-              }
-            ?>
-                             </tbody> 
-                             </table>
-					</div>
-					
-				
-				</div>
+			
 			</div>
 		</div>
 		<!--footer-->

@@ -61,39 +61,67 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 }
 </style>
 <body  >
-	
+    <?php
+	$eml=$_SESSION["pk_email_id"];
+
+$_newpass=$_POST["txtnewpass"];
+$_oldpass=$_POST["txtolpass"];
+$_conpass=$_POST["txtnewpass1"];
+
+
+if($_newpass==$_conpass)
+{
+    
+    require 'user_email.php';
+    $obj=new database();
+$res=$obj->change($_oldpass,$_newpass,$eml);
+
+if($res===true)
+{
+    echo "successfull";
+
+}
+else
+{
+    echo $res;
+
+}
+}
+else
+{
+    echo "unsuccessfull";
+}
+
+
+?>
+
 						
 					</ul>
 		<div id="back1">				
 			
 		<div  id="page-wrapper">
 			<div class="main-page login-page ">
-				<h3 class="title1">SignIn Page</h3>
+				<h3 class="title1">Change Password</h3>
 				<div class="widget-shadow">
 					<div class="login-top">
 						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
 					</div>
 					<div class="login-body">
-						<form action="login.php" method="POST" class="center">
-							<input type="text" class="user"  id="pk_email_id" placeholder="Enter your email" required="">
-							<input type="password"  id="Pass" class="lock" placeholder="password">
-							<input type="submit" name="Sign In" value="Sign In">
+						<form action="changepass.php" method="POST" class="center">
+							<input type="password" class="lock"  id="txtolpass" placeholder="Enter Your  Old Password" required="">
+							<input type="password"  id="txtnewpass" class="lock" placeholder="Enter Your  New Password" required="">
+							<input type="password"  id="txtnewpass1" class="lock" placeholder="Enter Your  New Password" required="">
+                            <input type="submit" name="Sign In" value="Change Password">
 							<div class="forgot-grid">
 								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-								<div class="forgot">
-									<a href="forgetpass.php">forgot password?</a>
-								</div>
+								
 								<div class="clearfix"> </div>
 							</div>
 						</form>
 					</div>
 				</div>
 				
-				<div class="login-page-bottom">
-					<h5> - OR -</h5>
-					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
-					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
-				</div>
+				
 			</div>
 		</div>
 		<!--footer-->

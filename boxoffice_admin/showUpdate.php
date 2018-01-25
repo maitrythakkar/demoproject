@@ -70,7 +70,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="addMovie.php">Add Movie</a>
 								</li>
 								<li>
-									<a href="movieUpdate.php">Update Movie</a>
+									<a href="updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -153,73 +153,80 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
-        	  <?php
-        include 'shared/menu.php';
-
-    ?>
+ <?php
+include '../shared/menu.php';
+?>
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
-      <?php
-        require 'admin_class.php';
-        $obj=new movie_booking();
-        $result=$obj->getAllMovie();
-    ?>
+     <?php
+	 
+    //if($_SERVER["REQUEST_METHOD"]=="POST")
+    //{
+        $con=new mysqli("localhost","root","","boxoffice");
+        if($con->connect_error)
+        {
+            echo "something went wrong";
+        }
+		 $_fk_Movie_id="";
+      $_fk_theater_id="";
+      $_Start_time="";
+      $_Date="";
+      $_Price="";
+      $_fk_Screen_id="";
+      $_pk_Show_id=$_GET["id"];
+      $sql="select * from show_tbl where pk_Show_id=".$_pk_Show_id;
+		$result=$con->query($sql);
+		$row=$result->fetch_assoc();
+  $_fk_Movie_id=$row["fk_Movie_id"];
+  $_fk_theater_id=$row["fk_theater_id"];
+  $_Start_time=$row["Start_time"];
+  $_Date=$row["Date"];
+  $_Price=$row["Price"];
+  $_fk_Screen_id=$row["fk_Screen_id"];
+ ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-	<div align="right">	
-  <button type="button" class="btn btn-primary">
-  <a style="color:white" href="addMovie.php"><span>Add Movie</span></a>
-  </button>
-  <button type="button" class="btn btn-primary">Delete All</button>
-  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  </div>
+	<form role="form" method="post" action="theaterUpdate1.php">
+									<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>show Id</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtshow_id" value="<?php echo $_pk_Show_id; ?>">
+								</div>
+							
+                				<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b> Movie ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtmovie_id" value="<?php echo $_fk_Movie_id; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b> Theatre ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txttheatre_id" value="<?php echo $_fk_theater_id; ?>">
+								</div>
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Start time/b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtstart_time" value="<?php echo $_Start_time; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Date</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtdate" value="<?php echo $_Date; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Price</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtprice" value="<?php echo $_Price; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b> Screen ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtscreen_id" value="<?php echo $_fk_Screen_id; ?>">
+								</div>
+								<div class="form-group">
+									<button type="submit" name="btnupdate" value="Add" class="btn pull-right">Update</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
 
-				<div class="tables">
-					
-					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						
-						<table class="table table-hover"> 
-                        <thead> 
-                            <tr> 
-                                 
-                                     <th>Movie name</th>
-                                    <th>Director</th>
-                                     <th>Image</th>
-                                    <th>Producer</th>
-                                    <th>Cast</th>
-                                    <th>Duration</th>
-                                    <th>Strory</th>
-                                    <th>Type</th>
-                                    <th>Language</th>
-                                    <th>Rating</th>
-                                    <th>Operation</th>
-                  
-                             </tr> 
-                         </thead> 
-                         <tbody> 
-            <?php
-              while($row=$result->fetch_assoc())
-              {
-               echo '<tr>';
-                echo '<td>'. $row["Movie_name"] .'</td>';
-                  echo '<td>'. $row["Director"] .'</td>';
-                  echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
-                  echo '<td>'. $row["Producer"] .'</td>';
-                  
-                  echo '<td>'. $row["Cast"] .'</td>';
-                   echo '<td>'. $row["Duration"] .'</td>';
-                    echo '<td>'. $row["Story"] .'</td>';
-                     echo '<td>'. $row["Type"] .'</td>';
-                      
-                      
-                      echo '<td>'. $row["Rating"] .'</td>';
-					  echo '<td><a href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieUpdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               
-               echo '</tr>';
-              }
-            ?>
-                             </tbody> 
-                             </table>
-					</div>
+			
+			</div>
 					
 				
 				</div>
