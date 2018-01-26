@@ -80,7 +80,9 @@ color:white;
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								
+								<li>
+									<a href="../updateMovie.php">Update Movie</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -93,7 +95,9 @@ color:white;
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-							
+								<li>
+									<a href="../show/updateShow.php">Update Show</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -164,53 +168,74 @@ color:white;
         include '../shared/menu.php';
 
     ?>
+
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
-         <?php
-        require '../admin_class.php';
-        $obj=new movie_booking();
-        $result=$obj->getAllTheater();
-    ?>
+     <?php
+   
+      
+      $_pk_theater_id="";
+      
+      $_theater_name="";
+     
+      $_theater_add="";
+      
+      $_No_of_screen="";
+ 
+      $_pk_theater_id=$_GET["id"];
+   
+   
+                  
+      
+      require '../admin_class.php';
+      $obj=new movie_booking();
+      $res=$obj->updateTheater($_pk_theater_id);
+      
+      $row=$res->fetch_assoc();
+      $_theater_name=$row["theater_name"];
+      $_theater_add=$row["theater_add"];
+      $_No_of_screen=$row["No_of_screen"];
+     
+            
+  
+      ?>
+        </br>
+        </br>
+        </br>
+        </br>
 		<div id="page-wrapper">
 			<div class="main-page">
-					<div align="right">	
-  						<button type="button" class="btn btn-primary">
- 							 <a style="color:white" href="addTheater.php"><span>Add Theater</span></a>
-						  </button>
-  							<button type="button" class="btn btn-primary">Delete All</button>
-  							<button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  						</div>
-				<div class="tables">
-					
-					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+	<form role="form" method="post" enctype="multipart/form-Data" action="updateTheater1.php">
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theater ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_theater_id" placeholder="Enter Theater ID" value="<?php echo $_pk_theater_id;?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theater Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txttheater_name" placeholder="Enter Theater Name" value="<?php echo $_theater_name;?>">
+								</div>
+								<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Theater Address</b></label>
+									<input class="form-control" id="register-password" type="text" name="txttheater_add" placeholder="Enter Theater Address" value="<?php echo $_theater_add;?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter no of screen</b></label>
+									<input class="form-control" id="register-password" type="text" name="txtNo_of_screen" placeholder="Enter no of screen" value="<?php echo $_No_of_screen;?>">
+								</div>
 						
-						<table class="table table-hover"> 
-                        <thead> 
-                            <tr> 
-                                 
-                                  
-                                    <th>Theater name</th>
-                                    <th>Theater Address</th>
-                                    <th>No Of Screen</th>
-                             </tr> 
-                         </thead> 
-                         <tbody> 
-                                 <?php
-              while($row=$result->fetch_assoc())
-              {
-                    echo '<tr>'; 
-                    echo '<td>'. $row["theater_name"] .'</td>';
-                    echo '<td>'. $row["theater_add"] .'</td>'; 
-                    echo '<td>'. $row["No_of_screen"] .'</td>';
-                         echo '<td><a href="theaterDelete.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="updateTheater.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               echo '</tr>';
-              }
-            ?>
-                             </tbody> 
-                             </table>
-					</div>
-					
-				
-				</div>
+                	
+               
+
+								<div class="form-group">
+									<button  type="submit" name="btnupdate" value="Update" class="btn pull-right">Insert</button>
+									<div class="clearfix"></div>
+								</div>
+		</form>
+
+			
 			</div>
 		</div>
 		<!--footer-->

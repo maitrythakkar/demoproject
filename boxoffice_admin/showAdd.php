@@ -1,7 +1,13 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
+<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -32,36 +38,26 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
-a
-{
-	color:white;
-}
-a:hover
-{
-color:white;
-}
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
-	<!--left-fixed -navigation-->
+		<!--left-fixed -navigation-->
 		<div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
 				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 					<ul class="nav" id="side-menu">
 						
 						<li>
-							<a href="theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
+							<a href="../theater/theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="theaterDb.php">Display Theater</a>
+									<a href="../theater/theaterDb.php">Display Theater</a>
 								</li>
                                 <li>
-									<a href="addTheater.php">Add Theater</a>
+									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="updateTheater.php">Update Theater</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -74,9 +70,7 @@ color:white;
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -84,14 +78,12 @@ color:white;
 							<a href="../show/showDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Show<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="../show/showDb.php">Display Show</a>
+									<a href="showDb.php">Display Show</a>
 								</li>
                                 <li>
-									<a href="../show/showAdd.php">Add Show</a>
+									<a href="showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -104,14 +96,12 @@ color:white;
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
-							<a href="../language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
+							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
 									<a href="../language/languageDb.php">Display Language</a>
@@ -119,20 +109,18 @@ color:white;
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
-							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
 						
 						<li>
@@ -158,69 +146,40 @@ color:white;
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
-        	  <?php
+		  <?php
         include '../shared/menu.php';
 
     ?>
+
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
-         <?php
-        require '../admin_class.php';
-        $obj=new movie_booking();
-        $result=$obj->getAllShow();
-    ?>
+    
 		<div id="page-wrapper">
 			<div class="main-page">
-					<div align="right">	
-  						<button type="button" class="btn btn-primary">
- 							 <a style="color:white" href="addTheater.php"><span>Add Theater</span></a>
-						  </button>
-  							<button type="button" class="btn btn-primary">Delete All</button>
-  							<button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  						</div>
-				<div class="tables">
-					
-					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+	<form role="form" method="post" action="languageAdd1.php">
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_Language_id" placeholder="Enter Language ID">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtLanguage_name" placeholder="Enter Language Name">
+								</div>
+								
 						
-						<table class="table table-hover"> 
-                        <thead> 
-                            <tr> 
-                                 
-                                  
-                                   
-                                    <th>Movie Name</th>
-                                    <th>Movie Image</th>
-                                    <th>Theater name</th>
-                                    <th>Theater Address</th>
-                                    <th>Start Time</th>
-                                    <th>Date</th>
-                                    <th>Price</th>
-                                    <th>Screen No</th>
-                             </tr> 
-                         </thead> 
-                         <tbody> 
-                                 <?php
-              while($row=$result->fetch_assoc())
-              {
-                    echo '<tr>'; 
-                    echo '<td>'. $row["Movie_name"] .'</td>';
-                     echo '<td>'. $row["Img_path"] .'</td>';
-                    echo '<td>'. $row["theater_name"] .'</td>';
-                    echo '<td>'. $row["theater_add"] .'</td>'; 
-                    echo '<td>'. $row["Start_time"] .'</td>';
-                    echo '<td>'. $row["Date"] .'</td>';
-                    echo '<td>'. $row["Price"] .'</td>';
-                    echo '<td>'. $row["fk_Screen_id"] .'</td>';
-                         echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               echo '</tr>';
-              }
-            ?>
-                             </tbody> 
-                             </table>
+                	
+            
 
-					</div>
-					
-				
-				</div>
+								<div class="form-group">
+									<button  type="submit" name="btninsert" value="Add" class="btn pull-right">Submit</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+
+			
 			</div>
 		</div>
 		<!--footer-->

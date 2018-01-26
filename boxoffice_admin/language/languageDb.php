@@ -51,9 +51,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -66,9 +64,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -81,9 +77,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -91,7 +85,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screen/screenDb.php">Display Screen</a>
+									<a href="../screenDb.php">Display Screen</a>
 								</li>
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
@@ -111,9 +105,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/languageUpdate.php">Update Language</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>

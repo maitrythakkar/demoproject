@@ -1,8 +1,13 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
-
+<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -33,8 +38,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="js/metisMenu.min.js"></script>
 <script src="js/custom.js"></script>
 <link href="css/custom.css" rel="stylesheet">
-
-
+<style>
+a
+{
+	color:white;
+}
+a:hover
+{
+color:white;
+}
+</style>
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
@@ -94,7 +107,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="screenDb.php">Display Screen</a>
+									<a href="screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
 									<a href="screenAdd.php">Add Screen</a>
@@ -153,74 +166,36 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
- <?php
-include '../shared/menu.php';
-?>
+        	  <?php
+        include 'shared/menu.php';
+
+    ?>
     </br>
     </br>
     </br>
     </br>
 		<!-- main content start-->
-     <?php
-	 
-    //if($_SERVER["REQUEST_METHOD"]=="POST")
-    //{
-        $con=new mysqli("localhost","root","","boxoffice");
-        if($con->connect_error)
-        {
-            echo "something went wrong";
-        }
-		
-	
-      $_theater_name="";
-      $_theater_add="";
-      $_No_of_screen="";
-	   $_pk_theater_id=$_GET["id"];
-      $sql="select * from theater_tbl where 	pk_theater_id=".$_pk_theater_id;
-		//echo $sql;
-		$result=$con->query($sql);
-		$row=$result->fetch_assoc();
-  $_theater_name=$row["theater_name"];
-      $_theater_add=$row["theater_add"];
-      $_No_of_screen=$row["No_of_screen"];;
- 	
-	//}
-?>
-     
-     
-     
      
 		<div id="page-wrapper">
 			<div class="main-page">
-	<form role="form" method="post" action="theaterUpdate1.php">
-									<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Language Id</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txttheatre_id" value="<?php echo $_pk_theater_id; ?>">
-								</div>
-							
-                				<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theatre name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txttheatre_name" value="<?php echo $_theater_name; ?>">
-								</div>
-                                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theatre Address</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txttheatre_add" value="<?php echo $_theater_add; ?>">
-								</div>
+	<form role="form" method="post" action="screenAdd1.php">
 								<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter no of screen</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtno_of_screen" value="<?php echo $_No_of_screen; ?>">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Screen Number</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_Screen_id" placeholder="Enter Screen Number">
 								</div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Capacity Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtcapacity" placeholder="Enter Capacity">
+								</div>
+								
+		
 								<div class="form-group">
-									<button type="submit" name="btnupdate" value="Add" class="btn pull-right">Update</button>
+									<button type="submit" name="btninsert" value="Add" class="btn pull-right">Submit</button>
 									<div class="clearfix"></div>
 								</div>
 							</form>
 
 			
-			</div>
-					
-				
-				</div>
 			</div>
 		</div>
 		<!--footer-->

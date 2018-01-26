@@ -57,6 +57,14 @@ class movie_booking
         $result=$con->query("delete from screen_tbl where pk_Screen_id=".$id);       
         return $result;
     }
+       public function addScreen($_pk_Screen_id,$_capacity)
+    {
+        $con=movie_booking::connect();
+        $result=$con->query("insert into screen_tbl values('". $_pk_Screen_id ."','". $_capacity ."')");
+       
+        return $result;
+        
+    } 
      public function getAllLanguage()
     {
         $con=movie_booking::connect();
@@ -72,27 +80,11 @@ class movie_booking
         return $result;
         
     } 
-     public function proupdate($_pname,$_pcolor,$_pprice,$_pmanu,$_pwarra,$_psoh,$_pimg,$_des,$_fk_cat_id,$_pid)
-    {
-        $conn=database::connection();
-        $sql="update product_tbl set pname='". $_pname  ."',pcolor='". $_pcolor ."',prize='". $_pprice ."',manu='". $_pmanu ."',warr='". $_pwarra ."',soh='". $_psoh ."',image='". $_pimg ."',des='" . $_des ."',fk_cat_id='". $_fk_cat_id ."' where pid='".  $_pid ."'";
-        $res=$conn->query($sql);
-         return $res;    
-    }
    public function deleteLanguage($id)
     {
         $con=movie_booking::connect();
         $result=$con->query("delete from language_tbl where pk_Language_id=".$id);       
         return $result;
-    }
-     public function updatelanguage($_Language_name)
-    {
-        $con=movie_booking::connect();
-        $query="update language_tbl set Language_name='". $_Language_name  ."' where pk_Language_id='".$_pk_Language_id."'";
-        echo $query;
-        $result=$con->query();
-        return $result;
-    
     }
      public function getAllTheater()
     {
@@ -115,6 +107,21 @@ class movie_booking
         $result=$con->query("delete from theater_tbl where pk_theater_id=".$id);       
         return $result;
     }
+    public function updateTheater($_pk_theater_id)
+    {
+         $con=movie_booking::connect();
+         $result=$con->query("select * from theater_tbl where pk_theater_id=".$_pk_theater_id);
+         return $result;
+
+    }
+    public function updateTheater1($_pk_theater_id,$_theater_name,$_theater_add,$_No_of_screen)
+    {
+             $con=movie_booking::connect();
+             $result=$con->query("update theater_tbl set theater_name='". $_theater_name ."',theater_add='". $_theater_add ."',No_of_screen='". $_No_of_screen ."' where pk_theater_id='". $_pk_theater_id ."'");
+
+             return $result;
+             echo $result;
+    }
       public function getAllShow()
     {
         $con=movie_booking::connect();
@@ -128,5 +135,6 @@ class movie_booking
         $result=$con->query("delete from show_tbl where pk_Show_id=".$id);       
         return $result;
     }
+ 
 
 }

@@ -1,8 +1,13 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
-
+<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -54,9 +59,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="theater/updateTheater.php">Update Theater</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -69,9 +72,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="movieUpdate.php">Update Movie</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -84,9 +85,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="show/updateShow.php">Update Show</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -99,9 +98,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="screenUpdate.php">Update Screen</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -114,9 +111,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/language/languageUpdate.php">Update Language</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -209,11 +204,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                    echo '<td>'. $row["Duration"] .'</td>';
                     echo '<td>'. $row["Story"] .'</td>';
                      echo '<td>'. $row["Type"] .'</td>';
-                      
+                      echo '<td>'. $row["Type"] .'</td>';
                       
                       echo '<td>'. $row["Rating"] .'</td>';
-					  echo '<td><a href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieUpdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               
+                         echo '<td>';?><a style="color:blue"<?php echo 'href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieupdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
                echo '</tr>';
               }
             ?>
