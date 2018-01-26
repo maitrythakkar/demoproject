@@ -9,30 +9,30 @@
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
-<link href="../css/font-awesome.css" rel="stylesheet"> 
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
  <!-- js-->
-<script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/modernizr.custom.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
 <!--animate-->
-<link href="../css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="../js/wow.min.js"></script>
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
-<script src="../js/metisMenu.min.js"></script>
-<script src="../js/custom.js"></script>
-<link href="../css/custom.css" rel="stylesheet">
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+<link href="css/custom.css" rel="stylesheet">
 
 
 <!--//Metis Menu -->
@@ -49,12 +49,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="../theater/theaterDb.php">Display Theater</a>
+									<a href="theater/theaterDb.php">Display Theater</a>
 								</li>
                                 <li>
-									<a href="../theater/addTheater.php">Add Theater</a>
+									<a href="theater/addTheater.php">Add Theater</a>
 								</li>
-								
+								<li>
+									<a href="theater/updateTheater.php">Update Theater</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -62,12 +64,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="movieDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Movie<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                             <li>
-									<a href="../movieDb.php">Display Movie</a>
+									<a href="movieDb.php">Display Movie</a>
 								</li>
 								<li>
-									<a href="../addMovie.php">Add Movie</a>
+									<a href="addMovie.php">Add Movie</a>
 								</li>
-							
+								<li>
+									<a href="updateMovie.php">Update Movie</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -80,7 +84,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="show/showAdd.php">Add Show</a>
 								</li>
-								
+								<li>
+									<a href="show/updateShow.php">Update Show</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -88,12 +94,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screenDb.php">Display Screen</a>
+									<a href="screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
+									<a href="screenAdd.php">Add Screen</a>
 								</li>
-								
+								<li>
+									<a href="screenUpdate.php">Update Screen</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -101,12 +109,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="../language/languageDb.php">Display Language</a>
+									<a href="language/languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="../language/languageAdd.php">Add Language</a>
+									<a href="language/languageAdd.php">Add Language</a>
 								</li>
-							
+								<li>
+									<a href="language/language/languageUpdate.php">Update Language</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -179,7 +189,7 @@ include '../shared/menu.php';
  ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-	<form role="form" method="post" action="theaterUpdate1.php">
+	<form role="form" method="post" action="showUpdate1.php">
 									<div class="form-group">
 		        				 	<label for="register-username"><i class="icon-user"></i> <b>show Id</b></label>
 									<input class="form-control" id="register-username"  type="text" name="txtshow_id" value="<?php echo $_pk_Show_id; ?>">
@@ -229,7 +239,7 @@ include '../shared/menu.php';
         <!--//footer-->
 	</div>
 	<!-- Classie -->
-		<script src="../js/classie.js"></script>
+		<script src="js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -249,10 +259,10 @@ include '../shared/menu.php';
 			}
 		</script>
 	<!--scrolling js-->
-	<script src="../js/jquery.nicescroll.js"></script>
-	<script src="../js/scripts.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.js"> </script>
+	<script src="js/bootstrap.js"> </script>
 </body>
 </html>

@@ -161,105 +161,37 @@ color:white;
     </br>
 		<!-- main content start-->
      <?php
-    if($_SERVER["REQUEST_METHOD"]=="POST")
-    {
-       $con = new mysqli("localhost","root","","boxoffice");
+    $con=new mysqli("localhost","root","","boxoffice");
         if($con->connect_error)
         {
             echo "something went wrong";
         }
-      $_pk_Movie_id=$_POST["txtpk_Movie_id"];
-      echo $_pk_Movie_id;
-      $_Movie_name=$_POST["txtMovie_name"];
-      echo $_Movie_name;
-      $_Director=$_POST["txtDirector"];
-      
-      $_Producer=$_POST["txtProducer"];
-      $_Cast=$_POST["txtCast"];
-      $_Duration=$_POST["txtDuration"];
-      $_Story=$_POST["txtStory"];
-      $_Type=$_POST["txtType"];
-      $_fk_Language_id=$_POST["txtfk_Language_id"];
-      $_Rating=$_POST["txtRating"];  
-       $target_dir="shared/images/";
-            $target_file=$target_dir . basename($_FILES["txtpimg"]["name"]);
-            echo $target_file;
+			
+	
+      $_pk_Screen_id=$_GET["id"];
+      $_capacity="";
+         $sql="select * from screen_tbl where pk_Screen_id=".$_pk_Screen_id;
+		//echo $sql;
+		$result=$con->query($sql);
+		$row=$result->fetch_assoc();
+  $_capacity=$row["capacity"];
 
-            if(move_uploaded_file($_FILES["txtpimg"]["tmp_name"] , $target_file))
-            {  
-   
-                  
-      
-      require 'admin_class.php';
-      $obj=new movie_booking();
-      $res=$obj->addMovie($_pk_Movie_id,$_Movie_name,$_Director,$target_file,$_Producer,$_Cast,$_Duration,$_Story,$_Type,$_fk_Language_id,$_Rating );
-      echo $res;
-      
-      if($res===true)
-      {
-          header('location:movieDb.php');
-      }
-      else
-      {
-          echo "Unsuccessful";
-          
-      }
-            }
-    }
+	
       ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-	<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+	<form role="form" method="post" action="screenUpdate1.php">
 								<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie ID</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtpk_Movie_id" placeholder="Enter Movie ID">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Screen ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_screen_id" value="<?php echo $_pk_Screen_id; ?>">
 								</div>
                 <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie Name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtMovie_name" placeholder="Enter Movie Name">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Capacity</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtcapacity" value="<?php echo $_capacity; ?>">
 								</div>
+								
 								<div class="form-group">
-		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Director Name</b></label>
-									<input class="form-control" id="register-password" type="text" name="txtDirector" placeholder="Enter Director Name">
-								</div>
-							<!--	<div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Image Path</b></label>
-									<input class="form-control" id="register-password2" type="file" name="txtImg_path" placeholder="Enter Image Path">
-								</div>-->
-                                <div class="form-group">
-                                <input type="file" name="txtpimg" required class="form-control" placeholder="Ente Product Image
-    " aria-label="Amount (to the nearest dollar)">
-    </div>
-                	<div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Producer Name </b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtProducer" placeholder="Enter Producer Name ">
-								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Cast </b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtCast" placeholder="Enter Cast ">
-								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Duration</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtDuration" placeholder="Enter Duration ">
-								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Story</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtStory" placeholder="Enter Story ">
-								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Type</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtType" placeholder="Enter Type ">
-                </div>
-                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtfk_Language_id" placeholder="Enter Language Name">
-								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Rating</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtRating" placeholder="Enter Rating">
-								</div>
-								<div class="form-group">
-									<button type="submit" name="btninsert" value="Add" class="btn pull-right">Insert</button>
+									<button type="submit" name="btninsert" value="Update" class="btn pull-right">Update</button>
 									<div class="clearfix"></div>
 								</div>
 							</form>

@@ -87,7 +87,7 @@
 	
       $_pk_Movie_id=$_GET["id"];
    
-      $_pk_Movie_id=$_POST["txtpk_Movie_id"];
+    
  //     echo $_pk_Movie_id;
       $_Movie_name="";
  //     echo $_Movie_name;
@@ -114,7 +114,7 @@
       $_Story=$row["Story"];
       $_Type=$row["Type"];
       $_fk_Language_id=$row["fk_Language_id"];
-      $_Rating=$row["Rating "];
+      $_Rating=$row["Rating"];
      
  	
 ?>
@@ -129,7 +129,7 @@
 				<div class="row">
 					<div class="col-sm-5">
 						<div class="basic-login">
-							<form role="form" method="post" action="movieUpdate1">
+							<form role="form" method="post" action="movieUpdate1.php">
 								<div class="form-group">
 		        				 	<label for="register-username"><i class="icon-user"></i> <b> Movie ID</b></label>
 									<input class="form-control" id="register-username"  type="text" name="txtpk_Movie_id"  value="<?php echo $_pk_Movie_id; ?>">
@@ -172,7 +172,7 @@
 								</div>
                 <div class="form-group">
 		        				 	<label for="register-password2"><i class="icon-lock"></i> <b> Rating</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtRating" placeholder=" Rating">
+									<input class="form-control" id="register-password2" type="text" name="txtRating" value="<?php echo $_Rating; ?>">
 								</div>
 								<div class="form-group">
 									<button type="submit" name="btninsert" value="Update" class="btn pull-right">Update</button>

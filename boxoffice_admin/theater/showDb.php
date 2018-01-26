@@ -32,27 +32,35 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
+a
+{
+	color:white;
+}
+a:hover
+{
+color:white;
+}
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
-		<!--left-fixed -navigation-->
+	<!--left-fixed -navigation-->
 		<div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
 				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 					<ul class="nav" id="side-menu">
 						
 						<li>
-							<a href="../theater/theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
+							<a href="theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="../theater/theaterDb.php">Display Theater</a>
+									<a href="theaterDb.php">Display Theater</a>
 								</li>
                                 <li>
-									<a href="../theater/addTheater.php">Add Theater</a>
+									<a href="addTheater.php">Add Theater</a>
 								</li>
 								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
+									<a href="updateTheater.php">Update Theater</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -103,28 +111,28 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
-							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
+							<a href="../language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="languageDb.php">Display Language</a>
+									<a href="../language/languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="languageAdd.php">Add Language</a>
+									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
 								<li>
-									<a href="language/languageUpdate.php">Update Language</a>
+									<a href="../language/language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
-							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
 						
 						<li>
@@ -150,18 +158,25 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
-		  <?php
+        	  <?php
         include '../shared/menu.php';
 
     ?>
 		<!-- main content start-->
-        <?php
+         <?php
         require '../admin_class.php';
         $obj=new movie_booking();
-        $result=$obj->getAllLanguage();
+        $result=$obj->getAllShow();
     ?>
 		<div id="page-wrapper">
 			<div class="main-page">
+					<div align="right">	
+  						<button type="button" class="btn btn-primary">
+ 							 <a style="color:white" href="addTheater.php"><span>Add Theater</span></a>
+						  </button>
+  							<button type="button" class="btn btn-primary">Delete All</button>
+  							<button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  						</div>
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
@@ -169,28 +184,39 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
-                                
-                 
-                  <th>Language name</th>
-                  <th>Operation</th>
+                                 
+                                  
+                                   
+                                    <th>Movie Name</th>
+                                    <th>Movie Image</th>
+                                    <th>Theater name</th>
+                                    <th>Theater Address</th>
+                                    <th>Start Time</th>
+                                    <th>Date</th>
+                                    <th>Price</th>
+                                    <th>Screen No</th>
                              </tr> 
                          </thead> 
                          <tbody> 
-             <?php
+                                 <?php
               while($row=$result->fetch_assoc())
               {
-               echo '<tr>';
-               
-            
-                  echo '<td>'. $row["Language_name"] .'</td>';
-                  
-                 
-                         echo '<td><a href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="languageUpdate.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+                    echo '<tr>'; 
+                    echo '<td>'. $row["Movie_name"] .'</td>';
+                     echo '<td>'. $row["Img_path"] .'</td>';
+                    echo '<td>'. $row["theater_name"] .'</td>';
+                    echo '<td>'. $row["theater_add"] .'</td>'; 
+                    echo '<td>'. $row["Start_time"] .'</td>';
+                    echo '<td>'. $row["Date"] .'</td>';
+                    echo '<td>'. $row["Price"] .'</td>';
+                    echo '<td>'. $row["fk_Screen_id"] .'</td>';
+                         echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
                echo '</tr>';
               }
             ?>
                              </tbody> 
                              </table>
+
 					</div>
 					
 				

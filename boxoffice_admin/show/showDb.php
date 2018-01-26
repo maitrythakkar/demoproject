@@ -1,13 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -57,7 +51,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								
+								<li>
+									<a href="../theater/updateTheater.php">Update Theater</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -70,7 +66,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								
+								<li>
+									<a href="../updateMovie.php">Update Movie</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -78,12 +76,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="../show/showDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Show<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="showDb.php">Display Show</a>
+									<a href="../show/showDb.php">Display Show</a>
 								</li>
                                 <li>
-									<a href="showAdd.php">Add Show</a>
+									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-							
+								<li>
+									<a href="../show/updateShow.php">Update Show</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -96,7 +96,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								
+								<li>
+									<a href="../screenUpdate.php">Update Screen</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -109,7 +111,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
-								
+								<li>
+									<a href="../language/language/languageUpdate.php">Update Language</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -158,7 +162,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-			
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
@@ -175,7 +178,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                     <th>Date</th>
                                     <th>Price</th>
                                     <th>Screen No</th>
-									<th>Operation</th>
                              </tr> 
                          </thead> 
                          <tbody> 
@@ -184,7 +186,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               {
                     echo '<tr>'; 
                     echo '<td>'. $row["Movie_name"] .'</td>';
-				    echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
+                     echo '<td>'. $row["Img_path"] .'</td>';
                     echo '<td>'. $row["theater_name"] .'</td>';
                     echo '<td>'. $row["theater_add"] .'</td>'; 
                     echo '<td>'. $row["Start_time"] .'</td>';
