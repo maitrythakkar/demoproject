@@ -160,9 +160,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         $obj=new movie_booking();
         $result=$obj->getAllLanguage();
     ?>
-		<div id="page-wrapper">
+	<div id="page-wrapper">
 			<div class="main-page">
-				<div class="tables">
+	<div align="right">	
+  <button type="button" class="btn btn-primary">
+  <a style="color:white" href="languageAdd.php"><span>Add Language</span></a>
+  </button>	
+  <button type="button" class="btn btn-primary">
+  <a style="color:white" href="landeleteall.php"><span>Delete All</span></a>
+  </button>
+  
+  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  </div>		<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
 						
@@ -180,7 +189,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               while($row=$result->fetch_assoc())
               {
                echo '<tr>';
-               
+               echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Language_id"].'"></td>';
             
                   echo '<td>'. $row["Language_name"] .'</td>';
                   

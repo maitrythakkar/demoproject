@@ -7,6 +7,7 @@ class movie_booking
         self::$con=mysqli_connect("localhost","root","","boxoffice");
         return self::$con;
     }
+
      public static function disconnect()
     {
         self::$con=mysqli_disconnect();
@@ -71,6 +72,13 @@ class movie_booking
         $sql="select * from language_tbl";
         $result=$con->query($sql);
         return $result;
+    }
+    public function landeleteall($x)
+    {
+         $conn=queans::connection();
+        $sql="delete from language_tbl where pk_Language_id In ($x)";
+         $res=$conn->query($sql);
+         return $res;
     }
        public function addLanguage($_pk_Language_id,$_Language_name)
     {
