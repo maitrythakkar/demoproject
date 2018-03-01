@@ -19,7 +19,7 @@ class movie_booking
         $result=$con->query($sql);
         return $result;
     }
-    public function deleteMovie($id)
+     public function deleteMovie($id)
     {
         $con=movie_booking::connect();
          $sql="select * from movie_tbl where pk_Movie_id='". $id ."'";
@@ -137,4 +137,35 @@ class movie_booking
     }
  
 
+ 
 }
+    class user_login
+{
+    private static $conn=null;
+    
+    public static function connect()
+    {
+        self::$conn=mysqli_connect('localhost','root','','boxoffice');
+        return self::$conn;
+    }
+     /*   public function getuser($id,$ps)
+    {
+                $conn=user_login::connect();
+                $sql="select * from customer_tbl where pk_email_id= '". $id ."' and Password= '". $_ps ."' ";
+                $res=$conn->query($sql);
+                return $res;
+                login1::disconnect();
+    }*/
+    public function getuser()
+    {
+        $conn=user_login::connect();
+        $id=$_SESSION["userid"];
+        $conn=new mysqli('localhost','root','','project_db');
+        $sql="select * from customer_tbl where pk_email_id='".$id."'";
+        $res=$conn->query($sql);
+        return $res;
+        user_login::disconnect();
+    }
+    
+}
+   

@@ -47,16 +47,16 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465;
 
 // your gmail address
-$mail->Username = 'mrd311608@gmail.com';
+$mail->Username = 'maildemo254@gmail.com';
 
 // your password must be enclosed in single quotes
-$mail->Password = 'mrd311608';
+$mail->Password = 'maildemo1234';
 
 // add a subject line
 $mail->Subject = ' Forget Password ';
 
 // Sender email address and name
-$mail->SetFrom('mrd311608@gmail.com', 'shah');
+$mail->SetFrom('maildemo254@gmail.com', 'demo');
 
 $email1=$_eml;
 // reciever address, person you want to send

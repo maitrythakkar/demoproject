@@ -18,12 +18,12 @@ $_fk_Movie_id=$_POST["txtmovie_id"];
       $_Date=$_POST["txtdate"];
       $_Price=$_POST["txtprice"];
       $_fk_Screen_id=$_POST["txtscreen_id"];
-      $sql="update show_tbl set fk_Movie_id='". $_fk_Movie_id  ."'fk_theater_id,='". $_fk_theater_id  ."',Start_time='". $_Start_time  ."',Date='". $_Date ."',$_Price='". $_Price  ."' where pk_Show_id='".   $_pk_Show_id."' ";
+      $sql="update show_tbl set fk_Movie_id='". $_fk_Movie_id  ."',fk_theater_id='". $_fk_theater_id  ."',Start_time='". $_Start_time  ."',Date='". $_Date ."',Price='". $_Price  ."' where pk_Show_id='".   $_pk_Show_id."' ";
 echo $sql;
 if($conn->query($sql)===true){
     
     header('location:showDb.php');
-    //echo "update language_tbl set Language_name='". $_Language_name  ."' where pk_Language_id='".   $_pk_Language_id."' ";
+   
 }
 else
 {

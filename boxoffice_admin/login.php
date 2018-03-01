@@ -3,9 +3,6 @@ session_start();
 
 $_pk_email_id=$_SESSION["pk_email_id"];
 $_Password=$_SESSION["Pass"];
-
-//echo "$_pk_email_id";
-echo "hii";
 ?>
 
 <?php
@@ -43,6 +40,7 @@ echo $sql;
     if($result->num_rows===1)
     {
     $row=$result->fetch_assoc();
+    $_SESSION["pk_email_id"]=$_pk_email_id;
       header('location:movieDb.php');
    
      }
@@ -51,19 +49,5 @@ echo $sql;
        echo "something is wrong";
     }
     }
- /*   else
-    {
-        
-        echo '<script>';
-        echo 'alert("First Verify Your Account")';
-        echo '</script>';
-    }
-}
-else
-{
-    echo '<script>';
-    echo 'alert("incorrect Password Or Mail_ID")';
-    echo '</script>';
-}
-}*/
+ 
 ?>
