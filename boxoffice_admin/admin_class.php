@@ -75,9 +75,10 @@ class movie_booking
     }
     public function landeleteall($x)
     {
-         $conn=queans::connection();
+         $con=movie_booking::connect();
         $sql="delete from language_tbl where pk_Language_id In ($x)";
-         $res=$conn->query($sql);
+        
+         $res=$con->query($sql);
          return $res;
     }
        public function addLanguage($_pk_Language_id,$_Language_name)

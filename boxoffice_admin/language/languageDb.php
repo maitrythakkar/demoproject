@@ -150,31 +150,32 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
+		
 		  <?php
+		  
         include '../shared/menu.php';
 
     ?>
+	
 		<!-- main content start-->
         <?php
         require '../admin_class.php';
         $obj=new movie_booking();
         $result=$obj->getAllLanguage();
     ?>
+
 	<div id="page-wrapper">
 			<div class="main-page">
 	<div align="right">	
   <button type="button" class="btn btn-primary">
   <a style="color:white" href="languageAdd.php"><span>Add Language</span></a>
-  </button>	
-  <button type="button" class="btn btn-primary">
-  <a style="color:white" href="landeleteall.php"><span>Delete All</span></a>
   </button>
   
   <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
   </div>		<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						
+	<form action="landeleteall.php" method="post">					
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
@@ -200,6 +201,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             ?>
                              </tbody> 
                              </table>
+							 <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+							 </form>
 					</div>
 					
 				
