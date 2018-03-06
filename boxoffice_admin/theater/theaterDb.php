@@ -191,15 +191,17 @@ color:white;
                                     <th>No Of Screen</th>
                              </tr> 
                          </thead> 
-                         <tbody> 
+                         <tbody> .
                                  <?php
               while($row=$result->fetch_assoc())
               {
                     echo '<tr>'; 
+					
                     echo '<td>'. $row["theater_name"] .'</td>';
                     echo '<td>'. $row["theater_add"] .'</td>'; 
                     echo '<td>'. $row["No_of_screen"] .'</td>';
                          echo '<td><a href="theaterDelete.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="theaterUpdate.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+						echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_theater_id"].'" /></td>';
                echo '</tr>';
               }
             ?>

@@ -15,7 +15,9 @@ class movie_booking
     public function getAllMovie()
     {
         $con=movie_booking::connect();
-        $sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id";
+        $sql="select * from movie_tbl";
+        //$sql="select  movie_tbl.*, language_tbl.*  FROM movie_tbl JOIN language_tbl ON movie_tbl.fk_Language_id=language_tbl.pk_Language_id";
+        //$sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id";
         $result=$con->query($sql);
         return $result;
     }
@@ -111,6 +113,46 @@ class movie_booking
         $con=movie_booking::connect();
         $result=$con->query("delete from show_tbl where pk_Show_id=".$id);       
         return $result;
+    }
+    public function getAllbook()
+    {
+        $con=movie_booking::connect();
+        $sql="select * from book_tbl";
+      //  $sql="select book_tbl .*, show_tbl.*, movie_tbl.*, theater_tbl.*  FROM (((show_tbl JOIN movie_tbl ON show_tbl.fk_Movie_id=movie_tbl.pk_Movie_id) JOIN	theater_tbl ON show_tbl.fk_theater_id=theater_tbl.pk_theater_id) JOIN screen_tbl ON show_tbl.fk_Screen_id=screen_tbl.pk_Screen_id)";
+        $result=$con->query($sql);
+        return $result;
+    }
+     public function getAllpayment()
+    {
+        $con=movie_booking::connect();
+        $sql="select * from payment_tbl";
+      
+        $result=$con->query($sql);
+        return $result;
+    }
+    public function getAlluser()
+    {
+        $con=movie_booking::connect();
+        $sql="select * from customer_tbl";
+      
+        $result=$con->query($sql);
+        return $result;
+    }
+    public function landeleteall($x)
+    {
+         $con=movie_booking::connect();
+        $sql="delete from language_tbl where pk_Language_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
+    }
+    public function moviedeleteall($y)
+    {
+         $con=movie_booking::connect();
+        $sql="delete from movie_tbl where pk_Language_id In ($y)";
+        
+         $res=$con->query($sql);
+         return $res;
     }
 
 }

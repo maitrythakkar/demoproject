@@ -35,9 +35,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
-
 	<div class="main-content">
-		<!--left-fixed -navigation-->
+	<!--left-fixed -navigation-->
 		<div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
 				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -92,7 +91,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screen/screenDb.php">Display Screen</a>
+									<a href="../screenDb.php">Display Screen</a>
 								</li>
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
@@ -104,28 +103,28 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
-							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
+							<a href="../language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="languageDb.php">Display Language</a>
+									<a href="../language/languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="languageAdd.php">Add Language</a>
+									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
 								<li>
-									<a href="language/languageUpdate.php">Update Language</a>
+									<a href="../language/language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
-							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
 						
 						<li>
@@ -151,74 +150,52 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
-		
-		  <?php
-		  
+        	  <?php
         include '../shared/menu.php';
 
     ?>
-	
 		<!-- main content start-->
-        <?php
+         <?php
         require '../admin_class.php';
         $obj=new movie_booking();
-        $result=$obj->getAllLanguage();
+        $result=$obj->getAllpayment();
     ?>
-
-	<div id="page-wrapper">
+		<div id="page-wrapper">
 			<div class="main-page">
-	<div align="right">	
-  <button type="button" class="btn btn-primary">
-  <a style="color:white" href="languageAdd.php"><span>Add Language</span></a>
-  </button>
-  
-  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  </div>		<div class="tables">
+				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-	<script type="text/javascript">
-	function aa()
-	{
-		xmlhttp=new XMLHttpRequest();
-		xmlhttp.open("Get","select.php?nm="+document.getElementById("serchname".value,false);
-		xmlhttp.send(null);
-		document.getElementById("d1").innerHTML=xmlhttp.responseText;
-		document.getElementById("d1").style.visibility='visib';
-	}
-	</script>
-	<form action="landeleteall.php" method="post">		
-	
-
-
-<input type="text" placeholder="serch" name="serchname" onKeyup="aa()"><br><br>
-
+						<h4>Hover Rows Table:</h4>
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
-                                
-                 
-                  <th>Language name</th>
-                  <th>Operation</th>
+  
+                                    <th>pk_payment_id</th>
+                                    <th>fk_email_id</th>
+                                    <th> fk_book_id</th>
+                                    <th>Ticket_charge</th>
+                                    <th>Other_charge</th>
+                                    <th>Total</th>
+                                  
                              </tr> 
                          </thead> 
                          <tbody> 
-             <?php
+                                 <?php
               while($row=$result->fetch_assoc())
               {
-               echo '<tr>';
-               echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Language_id"].'"></td>';
-            
-                  echo '<td>'. $row["Language_name"] .'</td>';
-                  
-                 
-                         echo '<td><a href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="languageUpdate.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+                    echo '<tr>'; 
+                    echo '<td>'. $row["pk_payment_id"] .'</td>';
+                     echo '<td>'. $row["fk_email_id"] .'</td>';
+                    echo '<td>'. $row["fk_book_id"] .'</td>';
+                    echo '<td>'. $row["Ticket_charge"] .'</td>'; 
+                    echo '<td>'. $row["Other_charge"] .'</td>';
+                    echo '<td>'. $row["Total"] .'</td>';
+                   //      echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
                echo '</tr>';
               }
             ?>
                              </tbody> 
                              </table>
-							 <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
-							 </form>
 					</div>
 					
 				
