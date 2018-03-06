@@ -7,6 +7,7 @@ class movie_booking
         self::$con=mysqli_connect("localhost","root","","boxoffice");
         return self::$con;
     }
+
      public static function disconnect()
     {
         self::$con=mysqli_disconnect();
@@ -21,7 +22,7 @@ class movie_booking
         $result=$con->query($sql);
         return $result;
     }
-    public function deleteMovie($id)
+     public function deleteMovie($id)
     {
         $con=movie_booking::connect();
          $sql="select * from movie_tbl where pk_Movie_id='". $id ."'";
@@ -59,12 +60,28 @@ class movie_booking
         $result=$con->query("delete from screen_tbl where pk_Screen_id=".$id);       
         return $result;
     }
+       public function addScreen($_pk_Screen_id,$_capacity)
+    {
+        $con=movie_booking::connect();
+        $result=$con->query("insert into screen_tbl values('". $_pk_Screen_id ."','". $_capacity ."')");
+       
+        return $result;
+        
+    } 
      public function getAllLanguage()
     {
         $con=movie_booking::connect();
         $sql="select * from language_tbl";
         $result=$con->query($sql);
         return $result;
+    }
+    public function landeleteall($x)
+    {
+         $con=movie_booking::connect();
+        $sql="delete from language_tbl where pk_Language_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
     }
        public function addLanguage($_pk_Language_id,$_Language_name)
     {
@@ -101,6 +118,21 @@ class movie_booking
         $result=$con->query("delete from theater_tbl where pk_theater_id=".$id);       
         return $result;
     }
+    public function updateTheater($_pk_theater_id)
+    {
+         $con=movie_booking::connect();
+         $result=$con->query("select * from theater_tbl where pk_theater_id=".$_pk_theater_id);
+         return $result;
+
+    }
+    public function updateTheater1($_pk_theater_id,$_theater_name,$_theater_add,$_No_of_screen)
+    {
+             $con=movie_booking::connect();
+             $result=$con->query("update theater_tbl set theater_name='". $_theater_name ."',theater_add='". $_theater_add ."',No_of_screen='". $_No_of_screen ."' where pk_theater_id='". $_pk_theater_id ."'");
+
+             return $result;
+             echo $result;
+    }
       public function getAllShow()
     {
         $con=movie_booking::connect();
@@ -114,6 +146,7 @@ class movie_booking
         $result=$con->query("delete from show_tbl where pk_Show_id=".$id);       
         return $result;
     }
+<<<<<<< HEAD
     public function getAllbook()
     {
         $con=movie_booking::connect();
@@ -154,5 +187,39 @@ class movie_booking
          $res=$con->query($sql);
          return $res;
     }
+=======
+ 
+>>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
 
+ 
 }
+    class user_login
+{
+    private static $conn=null;
+    
+    public static function connect()
+    {
+        self::$conn=mysqli_connect('localhost','root','','boxoffice');
+        return self::$conn;
+    }
+     /*   public function getuser($id,$ps)
+    {
+                $conn=user_login::connect();
+                $sql="select * from customer_tbl where pk_email_id= '". $id ."' and Password= '". $_ps ."' ";
+                $res=$conn->query($sql);
+                return $res;
+                login1::disconnect();
+    }*/
+    public function getuser()
+    {
+        $conn=user_login::connect();
+        $id=$_SESSION["userid"];
+        $conn=new mysqli('localhost','root','','project_db');
+        $sql="select * from customer_tbl where pk_email_id='".$id."'";
+        $res=$conn->query($sql);
+        return $res;
+        user_login::disconnect();
+    }
+    
+}
+   

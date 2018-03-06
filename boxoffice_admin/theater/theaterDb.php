@@ -1,7 +1,13 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
+<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -74,9 +80,7 @@ color:white;
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -89,9 +93,7 @@ color:white;
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
+							
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -200,8 +202,12 @@ color:white;
                     echo '<td>'. $row["theater_name"] .'</td>';
                     echo '<td>'. $row["theater_add"] .'</td>'; 
                     echo '<td>'. $row["No_of_screen"] .'</td>';
+<<<<<<< HEAD
                          echo '<td><a href="theaterDelete.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="theaterUpdate.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
 						echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_theater_id"].'" /></td>';
+=======
+                         echo '<td><a href="theaterDelete.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="updateTheater.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+>>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
                echo '</tr>';
               }
             ?>

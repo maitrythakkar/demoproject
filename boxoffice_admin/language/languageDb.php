@@ -176,6 +176,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   </div>		<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+<<<<<<< HEAD
 	<script type="text/javascript">
 	function aa()
 	{
@@ -192,6 +193,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 <input type="text" placeholder="serch" name="serchname" onKeyup="aa()"><br><br>
 
+=======
+	<form action="landeleteall.php" method="post">					
+>>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
