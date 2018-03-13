@@ -256,14 +256,25 @@ color:white;
 		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Story</b></label>
 									<input class="form-control" id="register-password2" type="text" name="txtStory" placeholder="Enter Story ">
 								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Type</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtType" placeholder="Enter Type ">
-                </div>
-                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtfk_Language_id" placeholder="Enter Language Name">
-								</div>
+                 <div class="form-group">
+    <label for="register-password2">	Enter Type</label>
+    <select class="form-control"  name="txtType " id="register-password2">
+      <option>0 </option>
+      <option>1 </option>
+      
+    </select>
+  </div>
+  			              
+							 <div class="form-group">
+				<label for="register-password2">Enter Language</label>
+				<select class="form-control"  name="txtfk_Language_id" id="register-password2" placeholder="Enter Language ">
+				<option>Hindi </option>
+				<option>English</option>
+				
+				</select>
+  				</div>
+  
+  
                 <div class="form-group">
 		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Rating</b></label>
 									<input class="form-control" id="register-password2" type="text" name="txtRating" placeholder="Enter Rating">

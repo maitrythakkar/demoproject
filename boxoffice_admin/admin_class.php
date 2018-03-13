@@ -7,7 +7,6 @@ class movie_booking
         self::$con=mysqli_connect("localhost","root","","boxoffice");
         return self::$con;
     }
-
      public static function disconnect()
     {
         self::$con=mysqli_disconnect();
@@ -16,13 +15,21 @@ class movie_booking
     public function getAllMovie()
     {
         $con=movie_booking::connect();
-        $sql="select * from movie_tbl";
-        //$sql="select  movie_tbl.*, language_tbl.*  FROM movie_tbl JOIN language_tbl ON movie_tbl.fk_Language_id=language_tbl.pk_Language_id";
-        //$sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id";
+        $sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id";
         $result=$con->query($sql);
         return $result;
     }
-     public function deleteMovie($id)
+    
+    public function  moviedeleteall($x)
+   
+    {
+         $con=movie_booking::connect();
+        $sql="delete from movie_tbl where  pk_Movie_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
+    }
+    public function deleteMovie($id)
     {
         $con=movie_booking::connect();
          $sql="select * from movie_tbl where pk_Movie_id='". $id ."'";
@@ -54,6 +61,16 @@ class movie_booking
         $result=$con->query($sql);
         return $result;
     }
+    
+    public function  screendeleteall($x)
+   
+    {
+         $con=movie_booking::connect();
+        $sql="delete from screen_tbl where  pk_Screen_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
+    }
    public function deleteScreen($id)
     {
         $con=movie_booking::connect();
@@ -75,14 +92,6 @@ class movie_booking
         $result=$con->query($sql);
         return $result;
     }
-    public function landeleteall($x)
-    {
-         $con=movie_booking::connect();
-        $sql="delete from language_tbl where pk_Language_id In ($x)";
-        
-         $res=$con->query($sql);
-         return $res;
-    }
        public function addLanguage($_pk_Language_id,$_Language_name)
     {
         $con=movie_booking::connect();
@@ -91,6 +100,15 @@ class movie_booking
         return $result;
         
     } 
+    
+    public function landeleteall($x)
+    {
+         $con=movie_booking::connect();
+        $sql="delete from language_tbl where pk_Language_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
+    }
    public function deleteLanguage($id)
     {
         $con=movie_booking::connect();
@@ -112,6 +130,16 @@ class movie_booking
         return $result;
         
     } 
+     public function thedeleteall($x)
+   
+    {
+         $con=movie_booking::connect();
+        $sql="delete from theater_tbl where pk_theater_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
+    }
+  
    public function deleteTheater($id)
     {
         $con=movie_booking::connect();
@@ -146,8 +174,17 @@ class movie_booking
         $result=$con->query("delete from show_tbl where pk_Show_id=".$id);       
         return $result;
     }
-<<<<<<< HEAD
-    public function getAllbook()
+    
+    public function  showdeleteall($x)
+   
+    {
+         $con=movie_booking::connect();
+        $sql="delete from  show_tbl where pk_Show_id In ($x)";
+        
+         $res=$con->query($sql);
+         return $res;
+    }
+ public function getAllbook()
     {
         $con=movie_booking::connect();
         $sql="select * from book_tbl";
@@ -171,29 +208,12 @@ class movie_booking
         $result=$con->query($sql);
         return $result;
     }
-    public function landeleteall($x)
-    {
-         $con=movie_booking::connect();
-        $sql="delete from language_tbl where pk_Language_id In ($x)";
-        
-         $res=$con->query($sql);
-         return $res;
-    }
-    public function moviedeleteall($y)
-    {
-         $con=movie_booking::connect();
-        $sql="delete from movie_tbl where pk_Language_id In ($y)";
-        
-         $res=$con->query($sql);
-         return $res;
-    }
-=======
+    
  
->>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
 
- 
+
 }
-    class user_login
+ class user_login
 {
     private static $conn=null;
     

@@ -9,30 +9,30 @@
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
-<link href="../css/font-awesome.css" rel="stylesheet"> 
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
  <!-- js-->
-<script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/modernizr.custom.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
 <!--animate-->
-<link href="../css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="../js/wow.min.js"></script>
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
-<script src="../js/metisMenu.min.js"></script>
-<script src="../js/custom.js"></script>
-<link href="../css/custom.css" rel="stylesheet">
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+<link href="css/custom.css" rel="stylesheet">
 
 
 <!--//Metis Menu -->
@@ -153,80 +153,77 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
- <?php
-include '../shared/menu.php';
-?>
-    </br>
-    </br>
-    </br>
-    </br>
+        	  <?php
+        include 'shared/menu.php';
+
+    ?>
 		<!-- main content start-->
-     <?php
-	 
-    //if($_SERVER["REQUEST_METHOD"]=="POST")
-    //{
-        $con=new mysqli("localhost","root","","boxoffice");
-        if($con->connect_error)
-        {
-            echo "something went wrong";
-        }
-		 $_fk_Movie_id="";
-      $_fk_theater_id="";
-      $_Start_time="";
-      $_Date="";
-      $_Price="";
-      $_fk_Screen_id="";
-      $_pk_Show_id=$_GET["id"];
-      $sql="select * from show_tbl where pk_Show_id=".$_pk_Show_id;
-		$result=$con->query($sql);
-		$row=$result->fetch_assoc();
-  $_fk_Movie_id=$row["fk_Movie_id"];
-  $_fk_theater_id=$row["fk_theater_id"];
-  $_Start_time=$row["Start_time"];
-  $_Date=$row["Date"];
-  $_Price=$row["Price"];
-  $_fk_Screen_id=$row["fk_Screen_id"];
- ?>
+      <?php
+        require 'admin_class.php';
+        $obj=new movie_booking();
+        $result=$obj->getAllMovie();
+    ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-	<form role="form" method="post" action="showUpdate1.php">
-									<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>show Id</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtshow_id" value="<?php echo $_pk_Show_id; ?>">
-								</div>
-							
-                				<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b> Movie ID</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtmovie_id" value="<?php echo $_fk_Movie_id; ?>">
-								</div>
-                                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b> Theatre ID</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txttheatre_id" value="<?php echo $_fk_theater_id; ?>">
-								</div>
-								<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Start time/b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtstart_time" value="<?php echo $_Start_time; ?>">
-								</div>
-                                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Date</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtdate" value="<?php echo $_Date; ?>">
-								</div>
-                                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Price</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtprice" value="<?php echo $_Price; ?>">
-								</div>
-                                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b> Screen ID</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtscreen_id" value="<?php echo $_fk_Screen_id; ?>">
-								</div>
-								<div class="form-group">
-									<button type="submit" name="btnupdate" value="Add" class="btn pull-right">Update</button>
-									<div class="clearfix"></div>
-								</div>
-							</form>
+	<div align="right">	
+  <button type="button" class="btn btn-primary">
+  <a style="color:white" href="addMovie.php"><span>Add Movie</span></a>
+  </button>
+   
+ <button type="button" class="btn btn-primary">
+  <a style="color:white" href="delete_all.php"><span>delte all</span></a>
+  </button>
+ 
 
-			
-			</div>
+  <button type="button" class="btn btn-primary"   href="delete_all.php">Delete All</button>
+  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  </div>
+
+				<!--<div class="tables">
+					
+					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+						
+						<table class="table table-hover"> 
+                        <thead> 
+                            <tr> 
+                                 
+                                    <th>Movie name</th>
+                                    <th>Director</th>
+                                    <th>Image</th>
+                                    <th>Producer</th>
+                                   <th>Cast</th>
+                                    <th>Duration</th>
+                                    <th>Strory</th>
+                                    <th>Type</th>
+                                    <th>Rating</th>
+                                    <th>Operation</th>
+                  					
+                        		    
+                             </tr> 
+                         </thead> 
+                         <tbody> 
+            <?php
+              while($row=$result->fetch_assoc())
+              {
+                   echo '<tr>';
+                   echo '<td>'. $row["Movie_name"] .'</td>';
+                   echo '<td>'. $row["Director"] .'</td>';
+		    echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
+                   echo '<td>'. $row["Producer"] .'</td>';
+                   echo '<td>'. $row["Cast"] .'</td>';
+                	echo '<td>'. $row["Duration"] .'</td>';
+                   echo '<td>'. $row["Story"] .'</td>';
+                   echo '<td>'. $row["Type"] .'</td>';
+                   echo '<td>'. $row["Rating"] .'</td>';
+                   echo '<td>';?><a style="color:blue"<?php echo 'href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieupdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+	 echo '<td><input type="checkbox" Checkchange="chk[]"  name="chk[]" value="'.$row["pk_Movie_id"].'"></td>';
+	// echo '<td> <button type="button" class="btn btn-primary"   >Read more</button></td>';
+               echo '</tr>';
+              }
+            ?>
+                             </tbody> 
+                             </table>
+					</div>
 					
 				
 				</div>
@@ -237,9 +234,50 @@ include '../shared/menu.php';
 		   <p>&copy; 2016 Novus Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts</a></p>
 		</div>
         <!--//footer-->
-	</div>
+	</div>-->
 	<!-- Classie -->
-		<script src="../js/classie.js"></script>
+	<?php
+$id=$_GET["id"];
+$con=new mysqli("localhost","root","","boxoffice");
+$result=$con->query("select * from customer_tbl where pk_email_id='". $id ."'");
+if($result->num_rows>0){
+    
+$row=$result->fetch_assoc();
+echo '<center>';
+
+echo '<div class="card">';
+echo '  <div class="col-sm-6 col-md-4">';
+    echo '<div class="container">';
+      //echo '0<img src="..." alt="...">';
+      echo '<div class="container" width="1000">';
+      ?><center><img src="<?php echo $row["User_img"];?>" height="500" width="1100"><br><br><br></center><?php
+    
+   // echo ' <p><a href="moreimages.php?id='. $row["pro_id"] .'"  > More Images</a></p>';
+   
+      echo '<div class="row">';
+        echo '<lable><h1><b>User name is :</b>' .$row["User_name"].'<br><br></h1></lable>';
+		
+		
+      //  echo '<p>'.$row["prize"].'</p>';
+        echo ' <h3><b>Email_id    :   </b> '. $row["pk_email_id"].'<br><br></h3></label>';
+      echo '   <h3> <b>User_name   :    </b> '. $row["User_name"].'</b><br><br></h3>';
+      echo '   <h3> <b>Password          : </b>  '. $row["Password"].'</b><br><br></h3>';
+      echo '<h3><b> Fname:    </b> '. $row["Fname"].'<br><br></h3>';
+         echo '<h3><b> Lname : </b>  '. $row["Lname"].'<br><br></h3>';
+  		echo '<h3> <b>Gender : </b> '. $row["Gender"].'<br> <br></h3>';
+		  echo '<h3> <b>Address : </b>  '. $row["Address"].'<br><br></h3>';
+      // echo ' <p> <a href="#" class="btn btn-danger" role="button">Add to cart</a></p>';
+    
+     // echo ' <p><a href="moreimages.php" class="btn btn-primary" role="button">More images</a></p>';
+      echo '</div>';
+    echo '</div>';
+echo '  </div>';
+echo '</div>';
+echo '</center>';
+}
+?>
+
+		<script src="js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -259,10 +297,10 @@ include '../shared/menu.php';
 			}
 		</script>
 	<!--scrolling js-->
-	<script src="../js/jquery.nicescroll.js"></script>
-	<script src="../js/scripts.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.js"> </script>
+	<script src="js/bootstrap.js"> </script>
 </body>
 </html>

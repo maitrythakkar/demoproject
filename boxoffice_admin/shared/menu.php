@@ -1,14 +1,8 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 
   <body>
-
-
 <!-- header-starts -->
 		<div class="sticky-header header-section ">
 			<div class="header-left">
@@ -174,41 +168,12 @@ session_start();
 				<!--notification menu end -->
 				<div class="profile_details">		
 					<ul>
-						<li class="dropdown profile_details_drop" >
-							<a href="#" class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false">
+						<li class="dropdown profile_details_drop">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">	
-									<?php
-
-$_pk_email_id=$_SESSION["pk_email_id"];
-$conn=new mysqli("localhost","root","","boxoffice");
-    $sql="select * from customer_tbl where pk_email_id='". $_pk_email_id ."'";
-    $result=$conn->query($sql);
- 
-
-		while($row=$result->fetch_assoc())
-		{
-				echo '<span class="prfil-img">'?><img src="<?php echo $row["User_img"]; ?>" height="100" width="100"><?php echo '</span> ';?>
-    <?php
-		}
-		?>
-	
-								
+									<span class="prfil-img"><img src="images/a.png" alt=""> </span> 
 									<div class="user-name">
-										
-	  <?php
-
-$_pk_email_id=$_SESSION["pk_email_id"];
-$conn=new mysqli("localhost","root","","boxoffice");
-    $sql="select * from customer_tbl where pk_email_id='". $_pk_email_id ."'";
-    $result=$conn->query($sql);
- 
-
-		while($row=$result->fetch_assoc())
-		{
-    echo '<p>'.$row["User_name"].'</p>';
-										//echo '<p>.$row["User_name"].</p>';
-		}
-		?>
+										<p>Wikolia</p>
 										<span>Administrator</span>
 									</div>
 									<i class="fa fa-angle-down lnr"></i>
@@ -218,8 +183,8 @@ $conn=new mysqli("localhost","root","","boxoffice");
 							</a>
 							<ul class="dropdown-menu drp-mnu">
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-								<li> <a href="widgets.php"><i class="fa fa-user"></i> Profile</a> </li> 
-								<li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
 					</ul>
