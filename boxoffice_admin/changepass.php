@@ -61,39 +61,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 }
 </style>
 <body  >
-    <?php
-	$eml=$_SESSION["pk_email_id"];
-
-$_newpass=$_POST["txtnewpass"];
-$_oldpass=$_POST["txtolpass"];
-$_conpass=$_POST["txtnewpass1"];
-
-
-if($_newpass==$_conpass)
-{
-    
-    require 'user_email.php';
-    $obj=new database();
-$res=$obj->change($_oldpass,$_newpass,$eml);
-
-if($res===true)
-{
-    echo "successfull";
-
-}
-else
-{
-    echo $res;
-
-}
-}
-else
-{
-    echo "unsuccessfull";
-}
-
-
-?>
 
 						
 					</ul>
@@ -108,16 +75,53 @@ else
 					</div>
 					<div class="login-body">
 						<form action="changepass.php" method="POST" class="center">
-							<input type="password" class="lock"  id="txtolpass" placeholder="Enter Your  Old Password" required="">
-							<input type="password"  id="txtnewpass" class="lock" placeholder="Enter Your  New Password" required="">
-							<input type="password"  id="txtnewpass1" class="lock" placeholder="Enter Your  New Password" required="">
-                            <input type="submit" name="Sign In" value="Change Password">
+							<input type="password" class="lock"  name="txtolpass" placeholder="Enter Your  Old Password" required="">
+							<input type="password"  name="txtnewpass" class="lock" placeholder="Enter Your  New Password" required="">
+							<input type="password"  name="txtnewpass1" class="lock" placeholder="Enter Your  New Password" required="">
+                            <input type="submit" name="changepas" value="Change Password">
 							<div class="forgot-grid">
 								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
 								
 								<div class="clearfix"> </div>
 							</div>
 						</form>
+						    <?php
+	$eml=$_SESSION["pk_email_id"];
+if(isset($_POST['changepas']))
+{
+$_newpass=$_POST["txtnewpass"];
+$_oldpass=$_POST["txtolpass"];
+$_conpass=$_POST["txtnewpass1"];
+
+echo $_newpass;
+echo $_oldpass;
+if($_newpass==$_conpass)
+{
+    
+    require 'user_email.php';
+    $obj=new database();
+$res=$obj->change($_oldpass,$_newpass,$eml);
+
+if($res===true)
+{
+ //   echo "successfull";
+	header('location:widgets.php');
+
+}
+else
+{
+    echo $res;
+
+}
+}
+else
+{
+    echo "unsuccessfull";
+}
+
+}
+?>
+
 					</div>
 				</div>
 				

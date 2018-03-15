@@ -119,7 +119,7 @@
 				<div class="row">
 					<div class="col-sm-5">
 						<div class="basic-login">
-							<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+							<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
 								<div class="form-group">
 		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie ID</b></label>
 									<input class="form-control" id="register-username"  type="text" name="txtpk_Movie_id" placeholder="Enter Movie ID">

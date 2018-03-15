@@ -65,9 +65,6 @@ color:white;
                                 <li>
 									<a href="addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -79,9 +76,6 @@ color:white;
 								</li>
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
-								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -95,10 +89,7 @@ color:white;
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+									</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -110,10 +101,7 @@ color:white;
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
@@ -125,10 +113,7 @@ color:white;
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>

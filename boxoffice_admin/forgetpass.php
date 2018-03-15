@@ -84,8 +84,8 @@ $res=$obj->forgetpassword($_eml);
 						<h4><img src="img1.png" height="70px" width="70px"> </h4>
 					</div>
 					<div class="login-body">
-						<form action="sendemail.php" method="POST" class="center">
-							<input type="text" class="user"  id="txteml" placeholder="Enter your email" required="">
+						<form action="mail.php" method="POST" class="center">
+							<input type="text" class="user" name="txteml"  id="txteml" placeholder="Enter your email" required="">
 						
 							<input type="submit" name="forgotpass" value="Send verification Link">
 							<div class="forgot-grid">

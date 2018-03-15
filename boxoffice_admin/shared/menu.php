@@ -1,8 +1,9 @@
-<?php
-session_start();
 
-?>
 <!DOCTYPE html>
+<?php
+
+session_start();
+?>
 <html lang="en">
 
 
@@ -217,7 +218,8 @@ $conn=new mysqli("localhost","root","","boxoffice");
 								</div>	
 							</a>
 							<ul class="dropdown-menu drp-mnu">
-								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> 
+								<li><a href="changepass.php"><i class="fa fa-lock" ></i>Change password</li></li> 
 								<li> <a href="widgets.php"><i class="fa fa-user"></i> Profile</a> </li> 
 								<li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>

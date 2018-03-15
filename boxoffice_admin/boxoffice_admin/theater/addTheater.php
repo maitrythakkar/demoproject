@@ -162,65 +162,80 @@ color:white;
         include '../shared/menu.php';
 
     ?>
+
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
-         <?php
-        require '../admin_class.php';
-        $obj=new movie_booking();
-        $result=$obj->getAllShow();
-    ?>
+     <?php
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+       $con = new mysqli("localhost","root","","boxoffice");
+        if($con->connect_error)
+        {
+            echo "something went wrong";
+        }
+      $_pk_theater_id=$_POST["txtpk_theater_id"];
+      
+      $_theater_name=$_POST["txttheater_name"];
+     
+      $_theater_add=$_POST["txttheater_add"];
+      
+      $_No_of_screen=$_POST["txtNo_of_screen"];
+ 
+    
+   
+   
+                  
+      
+      require '../admin_class.php';
+      $obj=new movie_booking();
+      $res=$obj->addTheater($_pk_theater_id,$_theater_name,$_theater_add,$_No_of_screen);
+      echo $res;
+      
+      if($res===true)
+      {
+         //header('location:theaterDb.php');
+      }
+      else
+      {
+          echo "Unsuccessful";
+          
+      }
+            
+    }
+      ?>
 		<div id="page-wrapper">
 			<div class="main-page">
-					<div align="right">	
-  						<button type="button" class="btn btn-primary">
- 							 <a style="color:white" href="addTheater.php"><span>Add Theater</span></a>
-						  </button>
-  							<button type="button" class="btn btn-primary">Delete All</button>
-  							<button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  						</div>
-				<div class="tables">
-					
-					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+	<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theater ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_theater_id" placeholder="Enter Theater ID">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theater Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txttheater_name" placeholder="Enter Theater Name">
+								</div>
+								<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Theater Address</b></label>
+									<input class="form-control" id="register-password" type="text" name="txttheater_add" placeholder="Enter Theater Address">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter no of screen</b></label>
+									<input class="form-control" id="register-password" type="text" name="txtNo_of_screen"" placeholder="Enter no of screen">
+								</div>
 						
-						<table class="table table-hover"> 
-                        <thead> 
-                            <tr> 
-                                 
-                                  
-                                   
-                                    <th>Movie Name</th>
-                                    <th>Movie Image</th>
-                                    <th>Theater name</th>
-                                    <th>Theater Address</th>
-                                    <th>Start Time</th>
-                                    <th>Date</th>
-                                    <th>Price</th>
-                                    <th>Screen No</th>
-                             </tr> 
-                         </thead> 
-                         <tbody> 
-                                 <?php
-              while($row=$result->fetch_assoc())
-              {
-                    echo '<tr>'; 
-                    echo '<td>'. $row["Movie_name"] .'</td>';
-                     echo '<td>'. $row["Img_path"] .'</td>';
-                    echo '<td>'. $row["theater_name"] .'</td>';
-                    echo '<td>'. $row["theater_add"] .'</td>'; 
-                    echo '<td>'. $row["Start_time"] .'</td>';
-                    echo '<td>'. $row["Date"] .'</td>';
-                    echo '<td>'. $row["Price"] .'</td>';
-                    echo '<td>'. $row["fk_Screen_id"] .'</td>';
-                         echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               echo '</tr>';
-              }
-            ?>
-                             </tbody> 
-                             </table>
+                	
+               
 
-					</div>
-					
-				
-				</div>
+								<div class="form-group">
+									<button  type="submit" name="btninsert" value="Add" class="btn pull-right">Insert</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+
+			
 			</div>
 		</div>
 		<!--footer-->

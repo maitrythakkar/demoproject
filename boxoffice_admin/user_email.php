@@ -16,11 +16,12 @@ class database
       public function change($_oldpass,$_newpass,$_eml)
     {
         $conn=database::connection();
-        $sql="select * from user where eml='".$_eml."' and password='".$_oldpass."' ";
+        $sql="select * from customer_tbl where pk_email_id='".$_eml."' and password='".$_oldpass."' ";
         $res=$conn->query($sql);
         if($res->num_rows==1)
         {
-            $sql="update user set password='".$_newpass."' where eml='".$_eml."' ";
+            $sql="update customer_tbl set Password='".$_newpass."' where pk_email_id='".$_eml."' ";
+			echo $sql;
             $res=$conn->query($sql);
               return $res;
         }

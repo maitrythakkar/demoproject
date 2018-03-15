@@ -7,11 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<<<<<<< HEAD
-<meta  http-equiv="Content-Type" content="text/html;  charset=iso-8859-1"> 
-=======
 <title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
->>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -42,11 +38,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="js/metisMenu.min.js"></script>
 <script src="js/custom.js"></script>
 <link href="css/custom.css" rel="stylesheet">
-<style>
-.cls{
-	width:700px;
-}
-</style>
+
 
 <!--//Metis Menu -->
 </head> 
@@ -101,10 +93,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="screenDb.php">Display Screen</a>
+									<a href="screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="screenAdd.php">Add Screen</a>
+									<a href="screen/screenAdd.php">Add Screen</a>
 								</li>
 								
 							</ul>
@@ -160,57 +152,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         include 'shared/menu.php';
 
     ?>
-	<?php
-
-	 
-	  if(isset($_POST['submit'])){ 
-	  if(isset($_GET['go'])){ 
-	  if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
-  $name=$_POST['name']; 
-	  //connect  to the database 
-	  $db=mysql_connect  ("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error()); 
-  //-select  the database to use 
-  $mydb=mysql_select_db("boxoffice"); 
- //-query  the database table 
-	  $sql="SELECT  pk_Movie_id, Movie_name, Director FROM movie_tbl WHERE Movie_name LIKE '%" . $name .  "%' OR Director LIKE '%" . $name ."%'"; 
-	  //-run  the query against the mysql query function 
-	  $result1=mysql_query($sql); 
-	  //-create  while loop and loop through result set 
-	  while($row=mysql_fetch_array($result1)){ 
-	          $FirstName  =$row['Movie_name']; 
-	          $LastName=$row['Director']; 
-	          $ID=$row['pk_Movie_id']; 
-	  //-display the result of the array 
-	 echo' <table class="table table-hover">'; 
-                        echo'<thead>';
-                            echo'<tr>'; 
-                                 
-                                     echo '<th>Movie name</th>';
-                                    // <th>Director</th>
-                                    //  <th>Image</th>
-                                    // <th>Producer</th>
-                        echo ' </tr> ';
-                       echo '  </thead>'; 
-						  echo '<tr>';
-             //   echo "<td>"   .$FirstName . " ". $LastName ." </a></td>";
-	  //echo "<ul>\n"; 
-	//echo "<li>" . "<a  href=\"search.php?id=$ID\">"   .$FirstName . " " . $LastName .  "</a></li>\n"; 
-	//  echo "</ul>"; 
-	  } 
-	  } 
-	  else{ 
-	  echo  "<p>Please enter a search query</p>"; 
-	  } 
-	  } 
-  } 
-	 
-	?> 
-
 		<!-- main content start-->
       <?php
         require 'admin_class.php';
         $obj=new movie_booking();
         $result=$obj->getAllMovie();
+		
     ?>
 		<div id="page-wrapper">
 			<div class="main-page">
@@ -218,116 +165,62 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <button type="button" class="btn btn-primary">
   <a style="color:white" href="addMovie.php"><span>Add Movie</span></a>
   </button>
-  <button type="button" class="btn btn-primary">Delete All</button>
+  
   <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
   </div>
 
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						 <form  method="post"   id="searchform"> 
-	      <input  type="text" name="name" class="cls"> 
-	      <input  type="submit" name="submit"   value="Search">
+							<form action="moviedeleall.php" method="post">		
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
-
                                  
                                      <th>Movie name</th>
                                     <th>Director</th>
                                      <th>Image</th>
                                     <th>Producer</th>
-                                   <!-- <th>Cast</th>
+                                    <th>Cast</th>
                                     <th>Duration</th>
                                     <th>Strory</th>
                                     <th>Type</th>
                                     <th>Language</th>
                                     <th>Rating</th>
-									-->
                                     <th>Operation</th>
                   
                              </tr> 
                          </thead> 
                          <tbody> 
             <?php
-			
-	 
-	  if(isset($_POST['submit'])){ 
-	 // if(isset($_GET['go'])){ 
-	  if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
-  $name=$_POST['name']; 
-	  //connect  to the database 
-	  $db=mysql_connect  ("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error()); 
-  //-select  the database to use 
-  $mydb=mysql_select_db("boxoffice"); 
- //-query  the database table 
-	  $sql="SELECT  pk_Movie_id, Movie_name, Director,Img_path,Producer FROM movie_tbl WHERE Movie_name LIKE '%" . $name .  "%' OR Director LIKE '%" . $name ."%' OR Img_path LIKE '%" . $name ."%' OR Producer LIKE '%" . $name ."%'"; 
-	  //-run  the query against the mysql query function 
-	  $result1=mysql_query($sql); 
-	  //-create  while loop and loop through result set 
-	  while($row=mysql_fetch_array($result1)){ 
-	          $FirstName  =$row['Movie_name']; 
-	          $LastName=$row['Director']; 
-			   $img_path=$row['Img_path'];
-			   $producer=$row['Producer'];
-			    
-	          $ID=$row['pk_Movie_id']; 
-	  //-display the result of the array 
-	 echo' <table class="table table-hover">'; 
-                        echo'<thead>';
-                            echo'<tr>'; 
-                                 
-                                    // echo '<th>Movie name</th>';
-                                    //echo '<th>Director</th>';
-                                    //  <th>Image</th>
-                                    // <th>Producer</th>
-                        echo ' </tr> ';
-                       echo '  </thead>'; 
-						  echo '<tr>';
-    //       echo "<td>"."<a  href=\"search.php?id=$ID\">"   .$FirstName . " </a></td>";
-	//  echo "<ul>\n"; 
-	echo  '<td><b>'  .$FirstName .'</b></td>'; 
-	echo  '<td><b>'  .$LastName .'</b></td>'; 
-	 echo '<td><b>'?> <img src="<?php echo $img_path?>" height="150" width="150"><?php echo '</b></td>';
-	echo  '<td><b>'  .$producer .' </b></td>';
-	 echo '<td> <p><a href="readmore.php?id='. $row["pk_Movie_id"] .'" class="btn btn-info" role="button" >Read More</a></p><td>';
-	//echo  '<td>'  .$img_path .'</td>';  
-	
-	
-	  } 
-	  } 
-	  else{ 
-	  echo  "<p>Please enter a search query</p>"; 
-	  } 
-	  } 
-	  
-	 
-	 
-
               while($row=$result->fetch_assoc())
               {
                echo '<tr>';
-			   
-			 //  echo "<li>" "  .$FirstName . " " . $LastName .  "</a></li>\n"; 
                 echo '<td>'. $row["Movie_name"] .'</td>';
                   echo '<td>'. $row["Director"] .'</td>';
                   echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
                   echo '<td>'. $row["Producer"] .'</td>';
                   
-      //            echo '<td>'. $row["Cast"] .'</td>';
-        //           echo '<td>'. $row["Duration"] .'</td>';
-          ////          echo '<td>'. $row["Story"] .'</td>';
-              //       echo '<td>'. $row["Type"] .'</td>';
-                     // echo '<td>'. $row["Type"] .'</td>';
+                  echo '<td>'. $row["Cast"] .'</td>';
+                   echo '<td>'. $row["Duration"] .'</td>';
+                    echo '<td>'. $row["Story"] .'</td>';
+                     echo '<td>'. $row["Type"] .'</td>';
+                    //  echo '<td>'. $row["Type"] .'</td>';
                       
-                     // echo '<td>'. $row["Rating"] .'</td>';
-                         echo '<td>';?><a style="color:blue"<?php echo 'href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieupdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-				   echo '<td> <p><a href="readmore.php?id='. $row["pk_Movie_id"] .'" class="btn btn-info" role="button" >Read More</a></p><td>';
-               echo '</tr>';
+                      echo '<td>'. $row["Rating"] .'</td>';
+                      echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Movie_id"].'"></td>';
+					     echo '<td>';?><a style="color:blue"<?php echo 'href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieupdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+                   	 echo '<td> <p><a href="readmore.php?id='. $row["pk_Movie_id"] .'" class="btn btn-info" role="button" >Read More</a></p><td>';
+			   echo '</tr>';
               }
-            ?>
+			 ?>
                              </tbody> 
                              </table>
+							  <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+							 <input type="reset" name="btnall" class="btn btn-primary btn-lg" value="Clear"></center>
+							 </form>
+					
+							 
 					</div>
 					
 				

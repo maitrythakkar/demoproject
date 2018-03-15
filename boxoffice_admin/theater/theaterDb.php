@@ -65,10 +65,7 @@ color:white;
                                 <li>
 									<a href="addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="updateTheater.php">Update Theater</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
@@ -101,13 +98,10 @@ color:white;
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screen/screenDb.php">Display Screen</a>
+												<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
+									<a href="../screen/screenAdd.php">Add Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -120,9 +114,6 @@ color:white;
 								</li>
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
-								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -161,7 +152,7 @@ color:white;
 		</div>
 		<!--left-fixed -navigation-->
         	  <?php
-        include '../shared/menu.php';
+        include '../shared/menu2.php';
 
     ?>
 		<!-- main content start-->
@@ -176,13 +167,13 @@ color:white;
   						<button type="button" class="btn btn-primary">
  							 <a style="color:white" href="addTheater.php"><span>Add Theater</span></a>
 						  </button>
-  							<button type="button" class="btn btn-primary">Delete All</button>
+  					
   							<button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
   						</div>
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						
+						<form action="theaterdeleall.php" method="post">		
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
@@ -193,26 +184,25 @@ color:white;
                                     <th>No Of Screen</th>
                              </tr> 
                          </thead> 
-                         <tbody> .
+                         <tbody> 
                                  <?php
               while($row=$result->fetch_assoc())
               {
                     echo '<tr>'; 
-					
                     echo '<td>'. $row["theater_name"] .'</td>';
                     echo '<td>'. $row["theater_add"] .'</td>'; 
                     echo '<td>'. $row["No_of_screen"] .'</td>';
-<<<<<<< HEAD
-                         echo '<td><a href="theaterDelete.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="theaterUpdate.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-						echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_theater_id"].'" /></td>';
-=======
+					    echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_theater_id"].'"></td>';
                          echo '<td><a href="theaterDelete.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="updateTheater.php?id='. $row["pk_theater_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
->>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
                echo '</tr>';
               }
             ?>
                              </tbody> 
                              </table>
+							  <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+<input type="reset" name="btnall" class="btn btn-primary btn-lg" value="Clear"></center>							
+							</form>
+					
 					</div>
 					
 				

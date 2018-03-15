@@ -74,7 +74,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
 					</div>
 					<div class="login-body">
-						<form action="login.php" method="POST" class="center">
+						<form action="loginuser.php" method="POST" class="center">
 							<input type="text" class="user" name="pk_email_id" placeholder="Enter your email" required="">
 							<input type="password" name="Pass" class="lock" placeholder="password">
 							<input type="submit" name="Sign In" href="login.php" value="Sign In">

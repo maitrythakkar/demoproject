@@ -1,13 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -41,6 +35,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
+
 	<div class="main-content">
 		<!--left-fixed -navigation-->
 		<div class=" sidebar" role="navigation">
@@ -57,7 +52,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								
+								<li>
+									<a href="../theater/updateTheater.php">Update Theater</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -70,7 +67,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								
+								<li>
+									<a href="../updateMovie.php">Update Movie</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -78,12 +77,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="../show/showDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Show<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="showDb.php">Display Show</a>
+									<a href="../show/showDb.php">Display Show</a>
 								</li>
                                 <li>
-									<a href="showAdd.php">Add Show</a>
+									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								
+								<li>
+									<a href="../show/updateShow.php">Update Show</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -96,7 +97,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								
+								<li>
+									<a href="../screenUpdate.php">Update Screen</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -104,12 +107,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="../language/languageDb.php">Display Language</a>
+									<a href="languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="../language/languageAdd.php">Add Language</a>
+									<a href="languageAdd.php">Add Language</a>
 								</li>
-								
+								<li>
+									<a href="language/languageUpdate.php">Update Language</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -146,40 +151,78 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
+		
 		  <?php
+		  
         include '../shared/menu.php';
 
     ?>
-
-    </br>
-    </br>
-    </br>
-    </br>
+	
 		<!-- main content start-->
-    
-		<div id="page-wrapper">
+        <?php
+        require '../admin_class.php';
+        $obj=new movie_booking();
+        $result=$obj->getAllLanguage();
+    ?>
+
+	<div id="page-wrapper">
 			<div class="main-page">
-	<form role="form" method="post" action="languageAdd1.php">
-								<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language ID</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtpk_Language_id" placeholder="Enter Language ID">
-								</div>
-                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtLanguage_name" placeholder="Enter Language Name">
-								</div>
-								
-						
-                	
+	<div align="right">	
+  <button type="button" class="btn btn-primary">
+  <a style="color:white" href="languageAdd.php"><span>Add Language</span></a>
+  </button>
+  
+  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  </div>		<div class="tables">
+					
+					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+	<script type="text/javascript">
+	function aa()
+	{
+		xmlhttp=new XMLHttpRequest();
+		xmlhttp.open("Get","select.php?nm="+document.getElementById("serchname".value,false);
+		xmlhttp.send(null);
+		document.getElementById("d1").innerHTML=xmlhttp.responseText;
+		document.getElementById("d1").style.visibility='visib';
+	}
+	</script>
+	<form action="landeleteall.php" method="post">		
+	
+
+
+<input type="text" placeholder="serch" name="serchname" onKeyup="aa()"><br><br>
+
+						<table class="table table-hover"> 
+                        <thead> 
+                            <tr> 
+                                
+                 
+                  <th>Language name</th>
+                  <th>Operation</th>
+                             </tr> 
+                         </thead> 
+                         <tbody> 
+             <?php
+              while($row=$result->fetch_assoc())
+              {
+               echo '<tr>';
+               echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Language_id"].'"></td>';
             
-
-								<div class="form-group">
-									<button  type="submit" name="btninsert" value="Add" class="btn pull-right">Submit</button>
-									<div class="clearfix"></div>
-								</div>
-							</form>
-
-			
+                  echo '<td>'. $row["Language_name"] .'</td>';
+                  
+                 
+                         echo '<td><a href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="languageUpdate.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+               echo '</tr>';
+              }
+            ?>
+                             </tbody> 
+                             </table>
+							 <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+							 </form>
+					</div>
+					
+				
+				</div>
 			</div>
 		</div>
 		<!--footer-->

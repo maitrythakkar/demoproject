@@ -51,9 +51,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -65,9 +62,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
-								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -81,25 +75,19 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+									</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screenDb.php">Display Screen</a>
+									<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
+									<a href="../screen/screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
@@ -110,9 +98,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
-								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -151,7 +136,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!--left-fixed -navigation-->
         	  <?php
-        include '../shared/menu.php';
+        include '../shared/menu2.php';
 
     ?>
 		<!-- main content start-->
@@ -162,9 +147,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     ?>
 		<div id="page-wrapper">
 			<div class="main-page">
+			
+	<div align="right">	
+  <button type="button" class="btn btn-primary">
+  <a style="color:white" href="showAdd.php"><span>Add show</span></a>
+  </button>
+  
+  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  </div>
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+					<form action="showdeleall.php" method="post">		
 						<h4>Hover Rows Table:</h4>
 						<table class="table table-hover"> 
                         <thead> 
@@ -186,7 +180,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               {
                     echo '<tr>'; 
                     echo '<td>'. $row["Movie_name"] .'</td>';
-                     echo '<td>'. $row["Img_path"] .'</td>';
+					  echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
+                    // echo '<td>'. $row["Img_path"] .'</td>';
                     echo '<td>'. $row["theater_name"] .'</td>';
                     echo '<td>'. $row["theater_add"] .'</td>'; 
                     echo '<td>'. $row["Start_time"] .'</td>';
@@ -194,11 +189,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     echo '<td>'. $row["Price"] .'</td>';
                     echo '<td>'. $row["fk_Screen_id"] .'</td>';
                          echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               echo '</tr>';
+                 echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Movie_id"].'"></td>';
+			   echo '</tr>';
               }
             ?>
                              </tbody> 
                              </table>
+							   <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+							 <input type="reset" name="btnall" class="btn btn-primary btn-lg" value="Clear"></center>
+							 </form>
+					
 					</div>
 					
 				

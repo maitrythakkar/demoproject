@@ -51,9 +51,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -66,10 +63,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
-								</li>
-							</ul>
+										</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
@@ -81,23 +75,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screenDb.php">Display Screen</a>
+									<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
+									<a href="../screeen/screenAdd.php">Add Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -111,10 +99,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
-								</li>
-							</ul>
+														</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -151,7 +136,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!--left-fixed -navigation-->
         	  <?php
-        include '../shared/menu.php';
+        include '../shared/menu2.php';
 
     ?>
 		<!-- main content start-->
@@ -165,14 +150,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						<h4>Hover Rows Table:</h4>
+					
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
   
-                                    <th>pk_email_id</th>
+                                    <th>Email_id</th>
                                     <th>User_name</th>
-                                    <th> Password</th>
+                                    <th>Password</th>
                                     <th>Fname</th>
                                     <th>Lname</th>
                                     <th>Gender</th>
@@ -186,6 +171,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                          </thead> 
                          <tbody> 
                                  <?php
+								
               while($row=$result->fetch_assoc())
               {
                     echo '<tr>'; 
@@ -194,12 +180,22 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     echo '<td>'. $row["Password"] .'</td>';
                     echo '<td>'. $row["Fname"] .'</td>'; 
                     echo '<td>'. $row["Lname"] .'</td>';
-                    echo '<td>'. $row["Gender"] .'</td>';
+					$gen=$row["Gender"];
+				
+					if($gen==1)
+					{
+						echo '<td>'. "female" .'</td>';
+					}
+                    else
+					{
+						echo '<td>'. "male" .'</td>';	
+					}
                     echo '<td>'. $row["Address"] .'</td>';
                     echo '<td>'. $row["Pincode"] .'</td>';
                     echo '<td>'. $row["Mobile_no"] .'</td>';
                     echo '<td>'. $row["Bdate"] .'</td>';
-                     echo '<td>'. $row["User_img"] .'</td>';
+					  echo '<td>'?> <img src="<?php echo $row["User_img"];?>" height="150" width="150"><?php echo '</td>';
+                   //  echo '<td>'. $row["User_img"] .'</td>';
                    //      echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
                echo '</tr>';
               }

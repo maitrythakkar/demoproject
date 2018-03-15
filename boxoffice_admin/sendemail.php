@@ -1,18 +1,18 @@
 <?php
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
-require_once "../phpmailer/class.phpmailer.php";
- if($_SERVER["REQUEST_METHOD"]=="POST"){
+require_once "phpmailer/class.phpmailer.php";
+ 
         $_eml=$_POST["txteml"];
 
-       require 'user_email.php';
+       /*require 'user_email.php';
         $obj=new database();
-        $result=$obj->forgetpassword($_eml);
+        $result=$obj->forgetpassword($_eml);*/
       /*  $conn=new mysqli("localhost","root","","boxoffice");
         
          $sql="select * from customer_tbl where pk_email_id='".$_eml."'";
     $res=$conn->query($sql);
     $row=$res->fetch_assoc();*/
-    if($res->num_rows == 1)
+   /* if($res->num_rows == 1)
     {
         $message="Your password is ".$row["Password"];
        
@@ -20,11 +20,11 @@ require_once "../phpmailer/class.phpmailer.php";
     else
     {
         return "your account is invalid";
-    }
+    }*/
 
         
     
-//$message="Your password is ".$result;
+$message="Your password is abscdes ";
 // creating the phpmailer object
 $mail = new PHPMailer(true);
 
@@ -32,7 +32,7 @@ $mail = new PHPMailer(true);
 $mail->IsSMTP();
 
 // enables SMTP debug information (for testing) set 0 turn off debugging mode, 1 to show debug result
-$mail->SMTPDebug = 0;
+$mail->SMTPDebug = 2;
 
 // enable SMTP authentication
 $mail->SMTPAuth = true;
@@ -56,11 +56,11 @@ $mail->Password = '12345678shahdemo';
 $mail->Subject = ' Forget Password ';
 
 // Sender email address and name
-$mail->SetFrom('shahdemo1234@gmail.com', 'demo');
+$mail->SetFrom('shahdemo1234@gmail.com', 'shah demo');
 
-$email1=$_eml;
+$_email1=$_eml;
 // reciever address, person you want to send
-$mail->AddAddress($email1);
+$mail->AddAddress($_email1);
 
 // if your send to multiple person add this line again
 //$mail->AddAddress('tosend@domain.com');
@@ -92,5 +92,5 @@ try {
     $msg = $e->getMessage();
 }
 echo $msg;
- }
+ 
 ?>

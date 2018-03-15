@@ -1,13 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -59,10 +53,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="theater/addTheater.php">Add Theater</a>
 								</li>
-							
+								<li>
+									<a href="theater/updateTheater.php">Update Theater</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
-							
 						</li>
                         	<li>
 							<a href="movieDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Movie<span class="fa arrow"></span></a>
@@ -73,11 +68,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="addMovie.php">Add Movie</a>
 								</li>
-								
+								<li>
+									<a href="updateMovie.php">Update Movie</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
-                        <li>
+                        	<li>
 							<a href="show/showDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Show<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
@@ -86,8 +83,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="show/showAdd.php">Add Show</a>
 								</li>
-								
-							</ul>	
+								<li>
+									<a href="show/updateShow.php">Update Show</a>
+								</li>
+							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -99,7 +98,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="screenAdd.php">Add Screen</a>
 								</li>
-								
+								<li>
+									<a href="screenUpdate.php">Update Screen</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -112,7 +113,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="language/languageAdd.php">Add Language</a>
 								</li>
-								
+								<li>
+									<a href="language/language/languageUpdate.php">Update Language</a>
+								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -147,58 +150,35 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					<!-- //sidebar-collapse -->
 				</nav>
 			</div>
-		</div>
-		<!--left-fixed -navigation-->
-        	  <?php
-        include 'shared/menu.php';
-
-    ?>
+		</div>		<!-- //header-ends -->
 		<!-- main content start-->
-      <?php
-        require 'admin_class.php';
-        $obj=new movie_booking();
-        $result=$obj->getAllScreen();
-    ?>
 		<div id="page-wrapper">
-			<div class="main-page">
-	<div align="right">	
-  <button type="button" class="btn btn-primary">
-  <a style="color:white" href="addMovie.php"><span>Add Movie</span></a>
-  </button>
-  <button type="button" class="btn btn-primary">Delete All</button>
-  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-  </div>
-
-				<div class="tables">
-					
-					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						
-						<table class="table table-hover"> 
-                        <thead> 
-                            <tr> 
-                                 
-	                               <th>Screen No</th>
-                					<th>Capacity</th>
-                                    <th>Operation</th>
-                  
-                             </tr> 
-                         </thead> 
-                         <tbody> 
-            <?php
-              while($row=$result->fetch_assoc())
-              {
-               echo '<tr>';
-              	  echo '<td>'. $row["pk_Screen_id"] .'</td>';
-                  echo '<td>'. $row["capacity"] .'</td>';
-                  echo '<td>';?><a style="color:blue"<?php echo 'href="screenDelete.php?id='. $row["pk_Screen_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="screenUpdate.php?id='. $row["pk_Screen_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               echo '</tr>';
-              }
-            ?>
-                             </tbody> 
-                             </table>
+			<div class="main-page login-page ">
+				<h3 class="title1">SignIn Page</h3>
+				<div class="widget-shadow">
+					<div class="login-top">
+						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
 					</div>
-					
+					<div class="login-body">
+						<form>
+							<input type="text" class="user" name="email" placeholder="Enter your email" required="">
+							<input type="password" name="password" class="lock" placeholder="password">
+							<input type="submit" name="Sign In" value="Sign In">
+							<div class="forgot-grid">
+								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
+								<div class="forgot">
+									<a href="#">forgot password?</a>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</form>
+					</div>
+				</div>
 				
+				<div class="login-page-bottom">
+					<h5> - OR -</h5>
+					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
+					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
 				</div>
 			</div>
 		</div>
@@ -233,6 +213,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.js"> </script>
+   <script src="js/bootstrap.js"> </script>
 </body>
 </html>

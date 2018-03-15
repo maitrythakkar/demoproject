@@ -51,9 +51,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -66,10 +63,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
-								</li>
-							</ul>
+									</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
@@ -81,9 +75,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -91,13 +82,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screenDb.php">Display Screen</a>
+									<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
+									<a href="../screen/screenAdd.php">Add Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -111,10 +99,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
-								</li>
-							</ul>
+										</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -150,8 +135,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
+
+		
         	  <?php
-        include '../shared/menu.php';
+        include '../shared/menu2.php';
 
     ?>
 		<!-- main content start-->
@@ -165,16 +152,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						<h4>Hover Rows Table:</h4>
+					
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
   
-                                    <th>pk_payment_id</th>
-                                    <th>fk_email_id</th>
-                                    <th> fk_book_id</th>
-                                    <th>Ticket_charge</th>
-                                    <th>Other_charge</th>
+                                    <th>Payment ID</th>
+                                    <th>Email ID</th>
+                                    <th>Book ID</th>
+                                    <th>Ticket charge</th>
+                                    <th>Other charge</th>
                                     <th>Total</th>
                                   
                              </tr> 

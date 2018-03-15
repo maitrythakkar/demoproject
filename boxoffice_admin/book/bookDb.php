@@ -1,4 +1,8 @@
 
+					<?php
+session_start();
+
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -51,9 +55,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -65,9 +66,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
-								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -81,23 +79,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screenDb.php">Display Screen</a>
+									<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
+									<a href="../screen/screenAdd.php">Add Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -110,9 +102,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
-								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -151,7 +140,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!--left-fixed -navigation-->
         	  <?php
-        include '../shared/menu.php';
+        include '../shared/menu2.php';
 
     ?>
 		<!-- main content start-->
@@ -165,16 +154,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-						<h4>Hover Rows Table:</h4>
+						
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
   
-                                    <th>pk_book_id</th>
+                                    <th>Book_id</th>
                                     <th>No_of_seats</th>
-                                    <th> fk_Show_id</th>
-                                    <th>fk_movie_id</th>
-                                    <th>fk_theater_id</th>
+                                    <th>Show_id</th>
+                                    <th>Movie_id</th>
+                                    <th>Theater_id</th>
                                   
                              </tr> 
                          </thead> 
@@ -185,7 +174,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     echo '<tr>'; 
                     echo '<td>'. $row["pk_book_id"] .'</td>';
                      echo '<td>'. $row["No_of_seats"] .'</td>';
-                    echo '<td>'. $row["fk_Show_id"] .'</td>';
+                    echo '<td>'. $row["fk_show_id"] .'</td>';
                     echo '<td>'. $row["fk_movie_id"] .'</td>'; 
                     echo '<td>'. $row["fk_theater_id"] .'</td>';
                    //      echo '<td><a href="deleteShow.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="showUpdate.php?id='. $row["pk_Show_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';

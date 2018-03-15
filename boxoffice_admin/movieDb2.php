@@ -1,8 +1,13 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
-
+<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -33,7 +38,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="js/metisMenu.min.js"></script>
 <script src="js/custom.js"></script>
 <link href="css/custom.css" rel="stylesheet">
-
+<style>
+.pagination{margin-top:30px;}
+.pagination li{display:inline-block;margin:0 5px;}
+.pagination li a{display:inline-block;padding:8px 12px;border:1px solid #eee;}
+.pagination li a.active{font-weight:bold;background:#f5f5f5;}
+</style>
 
 <!--//Metis Menu -->
 </head> 
@@ -54,9 +64,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="theater/updateTheater.php">Update Theater</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -69,9 +77,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="updateMovie.php">Update Movie</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -84,9 +90,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="show/updateShow.php">Update Show</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -94,14 +98,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="screenDb.php">Display Screen</a>
+									<a href="screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="screenAdd.php">Add Screen</a>
+									<a href="screen/screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="screenUpdate.php">Update Screen</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -114,9 +116,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/language/languageUpdate.php">Update Language</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -153,60 +153,94 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
- <?php
-include '../shared/menu.php';
-?>
-    </br>
-    </br>
-    </br>
-    </br>
-		<!-- main content start-->
-     <?php
-	 
-    //if($_SERVER["REQUEST_METHOD"]=="POST")
-    //{
-        $con=new mysqli("localhost","root","","boxoffice");
-        if($con->connect_error)
-        {
-            echo "something went wrong";
-        }
-		
-	
-      $_Language_name="";
-	   $_pk_Language_id=$_GET["id"];
-      $sql="select * from language_tbl where pk_Language_id=".$_pk_Language_id;
-		//echo $sql;
-		$result=$con->query($sql);
-		$row=$result->fetch_assoc();
- 
- 		$_Language_name=$row["Language_name"];
-	//}
-?>
-     
-     
-     
-     
-		<div id="page-wrapper">
-			<div class="main-page">
-	<form role="form" method="post" action="languageUpdate1.php">
-									<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Language Id</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtLanguage_id" value="<?php echo $_pk_Language_id; ?>">
-								</div>
-							
-                				<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtLanguage_name" value="<?php echo $_Language_name; ?>">
-								</div>
-								
-								<div class="form-group">
-									<button type="submit" name="btnupdate" value="Add" class="btn pull-right">Update</button>
-									<div class="clearfix"></div>
-								</div>
-							</form>
+        	  <?php
+        include 'shared/menu.php';
 
+    ?>
+		<!-- main content start-->
+   	<div id="page-wrapper">
+			<div class="main-page">
+	<div align="right">	
+  <button type="button" class="btn btn-primary">
+  <a style="color:white" href="addMovie.php"><span>Add Movie</span></a>
+  </button>
+  
+  <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  </div>
+
+				<div class="tables">
+					
+					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+							<form action="moviedeleall.php" method="post">		
+						<table class="table table-hover"> 
+                        <thead> 
+                            <tr> 
+                                 
+                                     <th>Movie name</th>
+                                    <th>Director</th>
+                                     <th>Image</th>
+                                    <th>Producer</th>
+                                    <th>Cast</th>
+                                    <th>Duration</th>
+                                    <th>Strory</th>
+                                    <th>Type</th>
+                                    <th>Language</th>
+                                    <th>Rating</th>
+                                    <th>Operation</th>
+                  
+                             </tr> 
+                         </thead> 
+                         <tbody> 
+            <?php
 			
-			</div>
+	if(isset($_GET['page']))
+	{
+		$page=$GET['page'];
+	}
+	else
+	{
+		$page=1;
+	}
+	if($page=='' || $page==1)
+	{
+		$page1=0;
+	}
+	else
+	{
+		$page1=($page*10)-10;
+	}
+	$sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id ORDER BY ID ASC LIMIT '.$page1.',10";
+	$connect= new mysqli('localhost','root','','boxoffice');
+	$data=$connect->query($sql);
+	
+              while($row=$result->fetch_assoc())
+              {
+               echo '<tr>';
+                echo '<td>'. $row["Movie_name"] .'</td>';
+                  echo '<td>'. $row["Director"] .'</td>';
+                  echo '<td>'?> <img src="<?php echo $row["Img_path"];?>" height="150" width="150"><?php echo '</td>';
+                  echo '<td>'. $row["Producer"] .'</td>';
+                  
+                  echo '<td>'. $row["Cast"] .'</td>';
+                   echo '<td>'. $row["Duration"] .'</td>';
+                    echo '<td>'. $row["Story"] .'</td>';
+                     echo '<td>'. $row["Type"] .'</td>';
+                    //  echo '<td>'. $row["Type"] .'</td>';
+                      
+                      echo '<td>'. $row["Rating"] .'</td>';
+                      echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Movie_id"].'"></td>';
+					     echo '<td>';?><a style="color:blue"<?php echo 'href="moviedelete.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="movieupdate.php?id='. $row["pk_Movie_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+                   	 echo '<td> <p><a href="readmore.php?id='. $row["pk_Movie_id"] .'" class="btn btn-info" role="button" >Read More</a></p><td>';
+			   echo '</tr>';
+              }
+			 ?>
+                             </tbody> 
+                             </table>
+							  <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+							 </form>
+					
+							 
+					</div>
 					
 				
 				</div>
