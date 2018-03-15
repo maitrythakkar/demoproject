@@ -32,32 +32,27 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
-a
-{
-	color:white;
-}
-a:hover
-{
-color:white;
-}
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
-	<!--left-fixed -navigation-->
+		<!--left-fixed -navigation-->
 		<div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
 				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 					<ul class="nav" id="side-menu">
 						
 						<li>
-							<a href="theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
+							<a href="../theater/theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="theaterDb.php">Display Theater</a>
+									<a href="../theater/theaterDb.php">Display Theater</a>
 								</li>
                                 <li>
-									<a href="addTheater.php">Add Theater</a>
+									<a href="../theater/addTheater.php">Add Theater</a>
+								</li>
+								<li>
+									<a href="../theater/updateTheater.php">Update Theater</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -71,6 +66,12 @@ color:white;
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
+=======
+								<li>
+									<a href="../updateMovie.php">Update Movie</a>
+								</li>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -82,35 +83,51 @@ color:white;
 								</li>
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
 								</li>
-									</ul>
+								</ul>
+=======
+								</li>
+								<li>
+									<a href="../show/updateShow.php">Update Show</a>
+								</li>
+							</ul>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 							<!-- /nav-second-level -->
 						</li>
                         <li>
 							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="../screen/screenDb.php">Display Screen</a>
+									<a href="../screenDb.php">Display Screen</a>
 								</li>
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								</ul>
+							</ul>
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
-							<a href="../language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
+							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="../language/languageDb.php">Display Language</a>
+									<a href="languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="../language/languageAdd.php">Add Language</a>
+									<a href="languageAdd.php">Add Language</a>
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
 								</li>
 								</ul>
+=======
+								</li>
+								<li>
+									<a href="language/languageUpdate.php">Update Language</a>
+								</li>
+							</ul>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 							<!-- /nav-second-level -->
 						</li>
-                        <li>
+                          <li>
 							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
@@ -119,9 +136,8 @@ color:white;
                         <li>
 							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
-						
 						<li>
-							<a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
 									<a href="login.html">Login</a>
@@ -143,15 +159,13 @@ color:white;
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
-        	  <?php
+		  <?php
         include '../shared/menu.php';
 
     ?>
+		<!-- main content start-->
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
 
-    </br>
-    </br>
-    </br>
-    </br>
 		<!-- main content start-->
      <?php
     if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -161,66 +175,125 @@ color:white;
         {
             echo "something went wrong";
         }
-      $_pk_theater_id=$_POST["txtpk_theater_id"];
-      
-      $_theater_name=$_POST["txttheater_name"];
-     
-      $_theater_add=$_POST["txttheater_add"];
-      
-      $_No_of_screen=$_POST["txtNo_of_screen"];
- 
-    
-   
-   
-                  
+		$_Movie_name=$_POST["txtmoviename"];
+		$_Img_pat=$_POST["txtimgpath"];
+		$_theater_name=$_POST["txttheatername"];
+		$_theater_add=$_POST["txttheateradd"];
+		$_Start_time=$_POST["txtstarttime"];
+        $_Date=$_POST["txtdate"];
+        $_Price=$_POST["txtprice"];
+        $_fk_Screen_id=$_POST["txtfkscreenid"];
+
       
       require '../admin_class.php';
       $obj=new movie_booking();
-      $res=$obj->addTheater($_pk_theater_id,$_theater_name,$_theater_add,$_No_of_screen);
+      $res=$obj->addshow($_Movie_name,$_Img_pat,$_theater_name,$_theater_add,$_Start_time,$_Date,$_Price,$_fk_Screen_id);
       echo $res;
       
       if($res===true)
       {
-         //header('location:theaterDb.php');
+          header('location:showDb.php');
       }
       else
       {
           echo "Unsuccessful";
-          
+	  }
       }
-            
-    }
+     
       ?>
 		<div id="page-wrapper">
 			<div class="main-page">
 	<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 								<div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theater ID</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtpk_theater_id" placeholder="Enter Theater ID">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtmoviename" placeholder="Enter Movie ID">
 								</div>
                 <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Theater Name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txttheater_name" placeholder="Enter Theater Name">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Select movie Image</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtimgpath" placeholder="Enter Movie Name">
 								</div>
+								<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Theater Name</b></label>
+									<input class="form-control" id="register-password" type="text" name="txttheatername" placeholder="Enter Theater Name">
+								</div>
+							<!--	<div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Image Path</b></label>
+									<input class="form-control" id="register-password2" type="file" name="txtImg_path" placeholder="Enter Image Path">
+								</div>-->
 								<div class="form-group">
 		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Theater Address</b></label>
-									<input class="form-control" id="register-password" type="text" name="txttheater_add" placeholder="Enter Theater Address">
+									<input class="form-control" id="register-password" type="text" name="txttheateradd" placeholder="Enter Theater Address">
 								</div>
-                                <div class="form-group">
-		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter no of screen</b></label>
-									<input class="form-control" id="register-password" type="text" name="txtNo_of_screen"" placeholder="Enter no of screen">
+													<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Start time</b></label>
+									<input class="form-control" id="register-password" type="time" name="txtstarttime" placeholder="Enter Start time">
 								</div>
-						
-                	
-               
-
-								<div class="form-group">
-									<button  type="submit" name="btninsert" value="Add" class="btn pull-right">Insert</button>
+															<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter date</b></label>
+									<input class="form-control" id="register-password" type="date" name="txtdate" placeholder="Select date">
+								</div>
+															<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter price</b></label>
+									<input class="form-control" id="register-password" type="text" name="txtprice" placeholder="Enter price">
+								</div>
+                                
+                	<div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Select Screen ID </b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtfkscreenid" placeholder="Enter Screen ID ">
+								</div>
+               				<div class="form-group">
+									<button type="submit" name="btninsert" value="Add" class="btn pull-right">Insert</button>
 									<div class="clearfix"></div>
 								</div>
 							</form>
+							
+
+
 
 			
+=======
+        <?php
+	        require '../admin_class.php';
+    	    $obj=new movie_booking();
+        	$result=$obj->getAllLanguage();
+    	?>
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div align="right">	
+  						<button type="button" class="btn btn-primary">
+ 							 <a style="color:white" href="languageAdd.php"><span>Add Language</span></a>
+						  </button>
+  							<button type="button" class="btn btn-primary">Delete All</button>
+  							<button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+  				</div>
+				<div class="tables">
+					
+					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+						
+						<table class="table table-hover"> 
+                       		 <thead> 
+                           		 <tr> 
+									<th>Language name</th>
+                  					<th>Operation</th>
+								 </tr> 
+                         	</thead> 
+                         	<tbody> 
+             					<?php
+              						while($row=$result->fetch_assoc())
+              						{
+              							 echo '<tr>';
+               							 echo '<td>'. $row["Language_name"] .'</td>';
+                                         echo '<td><a href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="languageUpdate.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+                                         echo '</tr>';
+                                    }
+                                ?>
+                             </tbody> 
+                             </table>
+					</div>
+					
+				
+				</div>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 			</div>
 		</div>
 		<!--footer-->

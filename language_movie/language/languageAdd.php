@@ -1,132 +1,126 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
-
+<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
  <!-- js-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/wow.min.js"></script>
+<link href="../css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
-<link href="css/custom.css" rel="stylesheet">
-
-
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/custom.js"></script>
+<link href="../css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
-	<!--left-fixed -navigation-->
+		<!--left-fixed -navigation-->
 		<div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
 				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 					<ul class="nav" id="side-menu">
 						
 						<li>
-							<a href="theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
+							<a href="../theater/theaterDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Theater<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="theater/theaterDb.php">Display Theater</a>
+									<a href="../theater/theaterDb.php">Display Theater</a>
 								</li>
                                 <li>
-									<a href="theater/addTheater.php">Add Theater</a>
+									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="theater/updateTheater.php">Update Theater</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
-							<a href="movieDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Movie<span class="fa arrow"></span></a>
+							<a href="../movieDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Movie<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                             <li>
-									<a href="movieDb.php">Display Movie</a>
+									<a href="../movieDb.php">Display Movie</a>
 								</li>
 								<li>
-									<a href="addMovie.php">Add Movie</a>
+									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="updateMovie.php">Update Movie</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
-							<a href="show/showDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Show<span class="fa arrow"></span></a>
+							<a href="../show/showDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Show<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="show/showDb.php">Display Show</a>
+									<a href="../show/showDb.php">Display Show</a>
 								</li>
                                 <li>
-									<a href="show/showAdd.php">Add Show</a>
+									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="show/updateShow.php">Update Show</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
-							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
+							<a href="../screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="screenDb.php">Display Screen</a>
+									<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="screenAdd.php">Add Screen</a>
+									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="screenUpdate.php">Update Screen</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
-							<a href="language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
+							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="language/languageDb.php">Display Language</a>
+									<a href="languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="language/languageAdd.php">Add Language</a>
+									<a href="languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/language/languageUpdate.php">Update Language</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
-							<a href="book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
 						
 						<li>
@@ -150,36 +144,42 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					<!-- //sidebar-collapse -->
 				</nav>
 			</div>
-		</div>		<!-- //header-ends -->
+		</div>
+		<!--left-fixed -navigation-->
+		  <?php
+        include '../shared/menu.php';
+
+    ?>
+
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
+    
 		<div id="page-wrapper">
-			<div class="main-page login-page ">
-				<h3 class="title1">SignIn Page</h3>
-				<div class="widget-shadow">
-					<div class="login-top">
-						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
-					</div>
-					<div class="login-body">
-						<form>
-							<input type="text" class="user" name="email" placeholder="Enter your email" required="">
-							<input type="password" name="password" class="lock" placeholder="password">
-							<input type="submit" name="Sign In" value="Sign In">
-							<div class="forgot-grid">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-								<div class="forgot">
-									<a href="#">forgot password?</a>
+			<div class="main-page">
+	<form role="form" method="post" action="languageAdd1.php">
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtpk_Language_id" placeholder="Enter Language ID">
 								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</form>
-					</div>
-				</div>
-				
-				<div class="login-page-bottom">
-					<h5> - OR -</h5>
-					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
-					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
-				</div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtLanguage_name" placeholder="Enter Language Name">
+								</div>
+								
+						
+                	
+            
+
+								<div class="form-group">
+									<button  type="submit" name="btninsert" value="Add" class="btn pull-right">Submit</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+
+			
 			</div>
 		</div>
 		<!--footer-->
@@ -209,10 +209,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			}
 		</script>
 	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../js/jquery.nicescroll.js"></script>
+	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.js"> </script>
+	<script src="../js/bootstrap.js"> </script>
 </body>
 </html>

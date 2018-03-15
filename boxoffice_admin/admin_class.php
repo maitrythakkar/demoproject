@@ -15,8 +15,12 @@ class movie_booking
     public function getAllMovie()
     {
         $con=movie_booking::connect();
+<<<<<<< HEAD
         //$sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id ";
 		$sql="select * from movie_tbl";
+=======
+        $sql="select m.*,l.* from movie_tbl m,language_tbl l where m.fk_Language_id=l.pk_Language_id";
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069
         $result=$con->query($sql);
         return $result;
     }
@@ -185,6 +189,7 @@ class movie_booking
          $res=$con->query($sql);
          return $res;
     }
+<<<<<<< HEAD
 	 public function addshow($_Movie_name,$_Img_pat,$_theater_name,$_theater_add,$_Start_time,$_Date,$_Price,$_fk_Screen_id)
     {
         $con=movie_booking::connect();
@@ -196,6 +201,8 @@ class movie_booking
         return $result;
         
     } 
+=======
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069
  public function getAllbook()
     {
         $con=movie_booking::connect();

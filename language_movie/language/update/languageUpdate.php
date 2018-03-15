@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -8,30 +9,30 @@
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
  <!-- js-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/wow.min.js"></script>
+<link href="../css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
-<link href="css/custom.css" rel="stylesheet">
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/custom.js"></script>
+<link href="../css/custom.css" rel="stylesheet">
 
 
 <!--//Metis Menu -->
@@ -105,16 +106,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
-							<a href="language/languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
+							<a href="languageDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Language<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                  <li>
-									<a href="language/languageDb.php">Display Language</a>
+									<a href="languageDb.php">Display Language</a>
 								</li>
 								<li>
-									<a href="language/languageAdd.php">Add Language</a>
+									<a href="languageAdd.php">Add Language</a>
 								</li>
 								<li>
-									<a href="language/language/languageUpdate.php">Update Language</a>
+									<a href="languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -150,35 +151,64 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					<!-- //sidebar-collapse -->
 				</nav>
 			</div>
-		</div>		<!-- //header-ends -->
+		</div>
+		<!--left-fixed -navigation-->
+ <?php
+include '../shared/menu.php';
+?>
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
+     <?php
+	 
+    //if($_SERVER["REQUEST_METHOD"]=="POST")
+    //{
+        $con=new mysqli("localhost","root","","boxoffice");
+        if($con->connect_error)
+        {
+            echo "something went wrong";
+        }
+		
+	
+      $_Language_name="";
+	   $_pk_Language_id=$_GET["id"];
+      $sql="select * from language_tbl where pk_Language_id=".$_pk_Language_id;
+		//echo $sql;
+		$result=$con->query($sql);
+		$row=$result->fetch_assoc();
+ 
+ 		$_Language_name=$row["Language_name"];
+	//}
+?>
+     
+     
+     
+     
 		<div id="page-wrapper">
-			<div class="main-page login-page ">
-				<h3 class="title1">SignIn Page</h3>
-				<div class="widget-shadow">
-					<div class="login-top">
-						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
-					</div>
-					<div class="login-body">
-						<form>
-							<input type="text" class="user" name="email" placeholder="Enter your email" required="">
-							<input type="password" name="password" class="lock" placeholder="password">
-							<input type="submit" name="Sign In" value="Sign In">
-							<div class="forgot-grid">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-								<div class="forgot">
-									<a href="#">forgot password?</a>
+			<div class="main-page">
+	<form role="form" method="post" action="languageUpdate1.php">
+									<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Language Id</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtLanguage_id" value="<?php echo $_pk_Language_id; ?>">
 								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</form>
-					</div>
-				</div>
+							
+                				<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtLanguage_name" value="<?php echo $_Language_name; ?>">
+								</div>
+								
+								<div class="form-group">
+									<button type="submit" name="btnupdate" value="Add" class="btn pull-right">Update</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+
+			
+			</div>
+					
 				
-				<div class="login-page-bottom">
-					<h5> - OR -</h5>
-					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
-					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
 				</div>
 			</div>
 		</div>
@@ -189,7 +219,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         <!--//footer-->
 	</div>
 	<!-- Classie -->
-		<script src="js/classie.js"></script>
+		<script src="../js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -209,10 +239,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			}
 		</script>
 	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../js/jquery.nicescroll.js"></script>
+	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.js"> </script>
+	<script src="../js/bootstrap.js"> </script>
 </body>
 </html>

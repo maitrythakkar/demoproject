@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -150,35 +151,84 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					<!-- //sidebar-collapse -->
 				</nav>
 			</div>
-		</div>		<!-- //header-ends -->
+		</div>
+		<!--left-fixed -navigation-->
+ <?php
+include 'shared/menu.php';
+?>
+    </br>
+    </br>
+    </br>
+    </br>
 		<!-- main content start-->
+     <?php
+	 
+    //if($_SERVER["REQUEST_METHOD"]=="POST")
+    //{
+        $con=new mysqli("localhost","root","","boxoffice");
+        if($con->connect_error)
+        {
+            echo "something went wrong";
+        }
+		 $_fk_Movie_id="";
+      $_fk_theater_id="";
+      $_Start_time="";
+      $_Date="";
+      $_Price="";
+      $_fk_Screen_id="";
+      $_pk_Show_id=$_GET["id"];
+      $sql="select * from show_tbl where pk_Show_id=".$_pk_Show_id;
+		$result=$con->query($sql);
+		$row=$result->fetch_assoc();
+  $_fk_Movie_id=$row["fk_Movie_id"];
+  $_fk_theater_id=$row["fk_theater_id"];
+  $_Start_time=$row["Start_time"];
+  $_Date=$row["Date"];
+  $_Price=$row["Price"];
+  $_fk_Screen_id=$row["fk_Screen_id"];
+ ?>
 		<div id="page-wrapper">
-			<div class="main-page login-page ">
-				<h3 class="title1">SignIn Page</h3>
-				<div class="widget-shadow">
-					<div class="login-top">
-						<h4>Welcome boxoffice AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
-					</div>
-					<div class="login-body">
-						<form>
-							<input type="text" class="user" name="email" placeholder="Enter your email" required="">
-							<input type="password" name="password" class="lock" placeholder="password">
-							<input type="submit" name="Sign In" value="Sign In">
-							<div class="forgot-grid">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-								<div class="forgot">
-									<a href="#">forgot password?</a>
+			<div class="main-page">
+	<form role="form" method="post" action="showUpdate1.php">
+									<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>show Id</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtshow_id" value="<?php echo $_pk_Show_id; ?>">
 								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</form>
-					</div>
-				</div>
+							
+                				<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b> Movie ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtmovie_id" value="<?php echo $_fk_Movie_id; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b> Theatre ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txttheatre_id" value="<?php echo $_fk_theater_id; ?>">
+								</div>
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Start time/b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtstart_time" value="<?php echo $_Start_time; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Date</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtdate" value="<?php echo $_Date; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Price</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtprice" value="<?php echo $_Price; ?>">
+								</div>
+                                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b> Screen ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtscreen_id" value="<?php echo $_fk_Screen_id; ?>">
+								</div>
+								<div class="form-group">
+									<button type="submit" name="btnupdate" value="Add" class="btn pull-right">Update</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+
+			
+			</div>
+					
 				
-				<div class="login-page-bottom">
-					<h5> - OR -</h5>
-					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
-					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
 				</div>
 			</div>
 		</div>
@@ -213,6 +263,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.js"> </script>
+	<script src="js/bootstrap.js"> </script>
 </body>
 </html>
