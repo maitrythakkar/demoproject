@@ -31,6 +31,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu -->
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
+
 <link href="../css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
@@ -52,9 +53,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -67,10 +65,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
@@ -82,9 +77,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -95,10 +87,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="../screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
-									<a href="../screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
+									<a href="../screen/screenAdd.php">Add Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -112,20 +101,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/languageUpdate.php">Update Language</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
-							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
 						
 						<li>
@@ -151,19 +137,226 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!--left-fixed -navigation-->
-		
+<<<<<<< HEAD
+	<script language="JavaScript">
+	function selectAll(source) {
+		checkboxes = document.getElementsByName('chk[]');
+		for(var i in checkboxes)
+			checkboxes[i].checked = source.checked;
+	}
+</script>	
+	
 		  <?php
 		  
-        include '../shared/menu.php';
+        include '../shared/menu2.php';
 
     ?>
+=======
+		
+		
+		<div class="sticky-header header-section ">
+			<div class="header-left">
+				<!--toggle button start-->
+				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
+				<!--toggle button end-->
+				<!--logo -->
+				<div class="logo">
+					<a href="index.html">
+						<h1>Boxoffice</h1>
+						<span>AdminPanel</span>
+					</a>
+				</div>
+				<!--//logo-->
+				<!--search-box-->
+				<div class="search-box">
+                
+					<!--<form class="input">-->
+                    <form  method="post"   id="searchform"> 
+	      <!--<input  type="text" name="name" class="cls"> 
+	      <input  type="submit" name="submit"   value="Search">
+						-->
+						<input   placeholder="Search by theater name,address"  name="name" type="text"class="cls" id="serchform" />
+                        	      <input  type="submit" name="submit3"   value="Search"></td>
+						<label class="input__label" for="input-31">
+							<svg class="graphic" width="100%" height="100%" viewBox="10 10 404 77" preserveAspectRatio="none">
+								<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
+							</svg>
+						</label>
+					</form>
+				</div><!--//end-search-box-->
+				<div class="clearfix"> </div>
+			</div>
+			<div class="header-right">
+				<div class="profile_details_left"><!--notifications of menu start -->
+					<ul class="nofitications-dropdown">
+						<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="notification_header">
+										<h3>You have 3 new messages</h3>
+									</div>
+								</li>
+								<li><a href="#">
+								   <div class="user_img"><img src="images/1.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet</p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								</a></li>
+								<li class="odd"><a href="#">
+									<div class="user_img"><img src="images/2.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								  <div class="clearfix"></div>	
+								</a></li>
+								<li><a href="#">
+								   <div class="user_img"><img src="images/3.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								</a></li>
+								<li>
+									<div class="notification_bottom">
+										<a href="#">See all messages</a>
+									</div> 
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="notification_header">
+										<h3>You have 3 new notification</h3>
+									</div>
+								</li>
+								<li><a href="#">
+									<div class="user_img"><img src="images/2.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet</p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								  <div class="clearfix"></div>	
+								 </a></li>
+								 <li class="odd"><a href="#">
+									<div class="user_img"><img src="images/1.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								 </a></li>
+								 <li><a href="#">
+									<div class="user_img"><img src="images/3.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								 </a></li>
+								 <li>
+									<div class="notification_bottom">
+										<a href="#">See all notifications</a>
+									</div> 
+								</li>
+							</ul>
+						</li>	
+						<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">15</span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="notification_header">
+										<h3>You have 8 pending task</h3>
+									</div>
+								</li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Database update</span><span class="percentage">40%</span>
+										<div class="clearfix"></div>	
+									</div>
+									<div class="progress progress-striped active">
+										<div class="bar yellow" style="width:40%;"></div>
+									</div>
+								</a></li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+									   <div class="clearfix"></div>	
+									</div>
+									<div class="progress progress-striped active">
+										 <div class="bar green" style="width:90%;"></div>
+									</div>
+								</a></li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+										<div class="clearfix"></div>	
+									</div>
+								   <div class="progress progress-striped active">
+										 <div class="bar red" style="width: 33%;"></div>
+									</div>
+								</a></li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+									   <div class="clearfix"></div>	
+									</div>
+									<div class="progress progress-striped active">
+										 <div class="bar  blue" style="width: 80%;"></div>
+									</div>
+								</a></li>
+								<li>
+									<div class="notification_bottom">
+										<a href="#">See all pending tasks</a>
+									</div> 
+								</li>
+							</ul>
+						</li>	
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<!--notification menu end -->
+				<div class="profile_details">		
+					<ul>
+						<li class="dropdown profile_details_drop">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<div class="profile_img">	
+									<span class="prfil-img"><img src="images/a.png" alt=""> </span> 
+									<div class="user-name">
+										<p>Wikolia</p>
+										<span>Administrator</span>
+									</div>
+									<i class="fa fa-angle-down lnr"></i>
+									<i class="fa fa-angle-up lnr"></i>
+									<div class="clearfix"></div>	
+								</div>	
+							</a>
+							<ul class="dropdown-menu drp-mnu">
+								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>	
+			</div>
+			<div class="clearfix"> </div>	
+		</div>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069
 	
 		<!-- main content start-->
         <?php
         require '../admin_class.php';
         $obj=new movie_booking();
         $result=$obj->getAllLanguage();
-    ?>
+	?>
 
 	<div id="page-wrapper">
 			<div class="main-page">
@@ -171,12 +364,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <button type="button" class="btn btn-primary">
   <a style="color:white" href="languageAdd.php"><span>Add Language</span></a>
   </button>
+  <button type="button" class="btn btn-primary" onclick="CheckAll(document.myform.chk[])">Select ALL</button>
   
   <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
   </div>		<div class="tables">
 					
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
-<<<<<<< HEAD
 	<script type="text/javascript">
 	function aa()
 	{
@@ -187,15 +380,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		document.getElementById("d1").style.visibility='visib';
 	}
 	</script>
-	<form action="landeleteall.php" method="post">		
+	<form action="landeleteall.php" method="post" name="myform">		
 	
 
 
-<input type="text" placeholder="serch" name="serchname" onKeyup="aa()"><br><br>
+
+<<<<<<< HEAD
 
 =======
-	<form action="landeleteall.php" method="post">					
->>>>>>> 30c5717c65ba2d7ee3c5fc80f1ef922cdd4a90f0
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069
 						<table class="table table-hover"> 
                         <thead> 
                             <tr> 
@@ -207,21 +400,80 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                          </thead> 
                          <tbody> 
              <?php
+			
+			
+	 
+	  if(isset($_POST['submit3'])){ 
+	 // if(isset($_GET['go'])){ 
+	  if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
+  $name=$_POST['name']; 
+	  //connect  to the database 
+	  $db=mysql_connect  ("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error()); 
+  //-select  the database to use 
+  $mydb=mysql_select_db("boxoffice"); 
+ //-query  the database table 
+	  $sql="SELECT  pk_Language_id, Language_name FROM language_tbl WHERE Language_name LIKE '%" . $name .  "%'" ; 
+	  //-run  the query against the mysql query function 
+	  $result2=mysql_query($sql); 
+	  //-create  while loop and loop through result set 
+	  while($row=mysql_fetch_array($result2)){ 
+	      
+	          $Language_name=$row['Language_name']; 
+			
+			
+			    
+	          $ID=$row['pk_Language_id']; 
+	  //-display the result of the array 
+	 echo' <table class="table table-hover">'; 
+                        echo'<thead>';
+                            echo'<tr>'; 
+                                 
+                                    // echo '<th>Movie name</th>';
+                                    //echo '<th>Director</th>';
+                                    //  <th>Image</th>
+                                    // <th>Producer</th>
+                        echo ' </tr> ';
+                       echo '  </thead>'; 
+						  echo '<tr>';
+       // echo "<td><b>"."<a  href=\"search.php?id=$ID\">"   .$Language_name . "</b> </a></td>";
+	//  echo "<ul>\n"; 
+		echo  '<td><b>'  .$Language_name .'</b></td>'; 
+			  echo '<td><a style="color:blue"<?php echo href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span> | <a href="languageAdd.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+  echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Language_id"].'"></td>';
+
+	 //echo '<td><a style="color:blue"<?php echo 'href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="languageAdd.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
+	 //echo '<td> <p><a href="readmore.php?id='. $row["pk_Language_id"] .'" class="btn btn-info" role="button" >Read More</a></p><td>';
+	//echo  '<td>'  .$img_path .'</td>';  
+    
+	
+	
+	  } 
+	  } 
+	  else{ 
+	  echo  "<p>Please enter a search query</p>"; 
+	  } 
+	  } 
+	  
+	 
+	 
+
               while($row=$result->fetch_assoc())
               {
                echo '<tr>';
-               echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Language_id"].'"></td>';
+             
             
                   echo '<td>'. $row["Language_name"] .'</td>';
                   
                  
                          echo '<td><a href="languageDelete.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-trash"></span></a> | <a href="languageUpdate.php?id='. $row["pk_Language_id"].'"><span class="glyphicon glyphicon-pencil"></span></a></td>';
-               echo '</tr>';
+                echo '<td><input type="checkbox" name="chk[]" value="'.$row["pk_Language_id"].'"></td>';
+			   echo '</tr>';
               }
             ?>
                              </tbody> 
                              </table>
 							 <input type="submit" name="btnall" class="btn btn-primary btn-lg" value="Delete All"></center>
+							 <input type="reset" name="btnall" class="btn btn-primary btn-lg" value="Clear"></center>
 							 </form>
 					</div>
 					

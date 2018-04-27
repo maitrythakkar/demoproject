@@ -1,13 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -65,9 +59,6 @@ color:white;
                                 <li>
 									<a href="addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -79,9 +70,6 @@ color:white;
 								</li>
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
-								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -95,10 +83,7 @@ color:white;
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+									</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -110,10 +95,7 @@ color:white;
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                                                <li>
@@ -125,10 +107,7 @@ color:white;
 								<li>
 									<a href="../language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="../language/language/languageUpdate.php">Update Language</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>

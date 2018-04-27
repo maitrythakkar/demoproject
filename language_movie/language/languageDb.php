@@ -1,13 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -72,9 +66,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
 								</li>
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
+=======
 								<li>
 									<a href="../updateMovie.php">Update Movie</a>
 								</li>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -86,11 +83,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
+								</li>
+								</ul>
+=======
 								</li>
 								<li>
 									<a href="../show/updateShow.php">Update Show</a>
 								</li>
 							</ul>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -102,7 +104,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
 								</li>
-								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -114,25 +115,29 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="languageAdd.php">Add Language</a>
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
+								</li>
+								</ul>
+=======
 								</li>
 								<li>
 									<a href="language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 							<!-- /nav-second-level -->
 						</li>
-                        <li>
-							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+                          <li>
+							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
-						
 						<li>
-							<a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
 									<a href="login.html">Login</a>
@@ -159,6 +164,94 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
     ?>
 		<!-- main content start-->
+<<<<<<< HEAD:boxoffice_admin/show/showAdd.php
+
+		<!-- main content start-->
+     <?php
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+       $con = new mysqli("localhost","root","","boxoffice");
+        if($con->connect_error)
+        {
+            echo "something went wrong";
+        }
+		$_Movie_name=$_POST["txtmoviename"];
+		$_Img_pat=$_POST["txtimgpath"];
+		$_theater_name=$_POST["txttheatername"];
+		$_theater_add=$_POST["txttheateradd"];
+		$_Start_time=$_POST["txtstarttime"];
+        $_Date=$_POST["txtdate"];
+        $_Price=$_POST["txtprice"];
+        $_fk_Screen_id=$_POST["txtfkscreenid"];
+
+      
+      require '../admin_class.php';
+      $obj=new movie_booking();
+      $res=$obj->addshow($_Movie_name,$_Img_pat,$_theater_name,$_theater_add,$_Start_time,$_Date,$_Price,$_fk_Screen_id);
+      echo $res;
+      
+      if($res===true)
+      {
+          header('location:showDb.php');
+      }
+      else
+      {
+          echo "Unsuccessful";
+	  }
+      }
+     
+      ?>
+		<div id="page-wrapper">
+			<div class="main-page">
+	<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+								<div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie ID</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtmoviename" placeholder="Enter Movie ID">
+								</div>
+                <div class="form-group">
+		        				 	<label for="register-username"><i class="icon-user"></i> <b>Select movie Image</b></label>
+									<input class="form-control" id="register-username"  type="text" name="txtimgpath" placeholder="Enter Movie Name">
+								</div>
+								<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Theater Name</b></label>
+									<input class="form-control" id="register-password" type="text" name="txttheatername" placeholder="Enter Theater Name">
+								</div>
+							<!--	<div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Image Path</b></label>
+									<input class="form-control" id="register-password2" type="file" name="txtImg_path" placeholder="Enter Image Path">
+								</div>-->
+								<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Theater Address</b></label>
+									<input class="form-control" id="register-password" type="text" name="txttheateradd" placeholder="Enter Theater Address">
+								</div>
+													<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter Start time</b></label>
+									<input class="form-control" id="register-password" type="time" name="txtstarttime" placeholder="Enter Start time">
+								</div>
+															<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter date</b></label>
+									<input class="form-control" id="register-password" type="date" name="txtdate" placeholder="Select date">
+								</div>
+															<div class="form-group">
+		        				 	<label for="register-password"><i class="icon-lock"></i> <b>Enter price</b></label>
+									<input class="form-control" id="register-password" type="text" name="txtprice" placeholder="Enter price">
+								</div>
+                                
+                	<div class="form-group">
+		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Select Screen ID </b></label>
+									<input class="form-control" id="register-password2" type="text" name="txtfkscreenid" placeholder="Enter Screen ID ">
+								</div>
+               				<div class="form-group">
+									<button type="submit" name="btninsert" value="Add" class="btn pull-right">Insert</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+							
+
+
+
+			
+=======
         <?php
 	        require '../admin_class.php';
     	    $obj=new movie_booking();
@@ -200,6 +293,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					
 				
 				</div>
+>>>>>>> 7ac854690535f91c8a15b0389abaca4de68d6069:language_movie/language/languageDb.php
 			</div>
 		</div>
 		<!--footer-->

@@ -11,17 +11,15 @@ session_start();
 {
 	
 	
-    height: 10%;
-    width: 100%;
+   
+    width: 140%;
 }
 .divcls
 {
 	
-	padding-left:2%;
-	padding-right:20%;
-	padding-bottom:5%;
-    height: 10%;
-    width: 95%;
+	padding:2%;
+	 height: 10%;
+    width: 85%;
 }
 </style>
 <title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
@@ -76,9 +74,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -90,9 +85,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="addMovie.php">Add Movie</a>
-								</li>
-								<li>
-									<a href="updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -106,9 +98,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="show/updateShow.php">Update Show</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -116,13 +105,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="screenDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Screen<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
                                 <li>
-									<a href="screenDb.php">Display Screen</a>
+									<a href="screen/screenDb.php">Display Screen</a>
 								</li>
 								<li>
 									<a href="screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="screenUpdate.php">Update Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -135,9 +121,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="language/languageAdd.php">Add Language</a>
-								</li>
-								<li>
-									<a href="language/language/languageUpdate.php">Update Language</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -157,9 +140,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<ul class="nav nav-second-level collapse">
 								<li>
 									<a href="login.html">Login</a>
-								</li>
-								<li>
-									<a href="signup.html">SignUp</a>
 								</li>
 								<li>
 									<a href="blank-page.html">Blank Page</a>
@@ -186,9 +166,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page divcls">
 			
 				
-				
-						<h4 class="title3">Profile</h4>
-						<div class="profile-top">
 						<?php
 
 $_pk_email_id=$_SESSION["pk_email_id"];
@@ -200,8 +177,12 @@ $conn=new mysqli("localhost","root","","boxoffice");
 		while($row=$result->fetch_assoc())
 		{
 
-
- echo '<div class="row">';
+echo '<div class="r1">';
+ echo '	<div class="elements  row r1">';
+ echo '<div class="col-md-4 profile widget-shadow divcls">';
+					echo '	<h4 class="title3">'.'Profile'.'</h4>';
+					echo '	<div class="profile-top">';
+					
     echo '<div class="span3" >';
    echo '<center><img src="'.$row["User_img"].'" style="height:150px;width:150px;" class="img-thumbnail"></center><br><br><br>';
     echo '</div>';
@@ -247,7 +228,12 @@ $conn=new mysqli("localhost","root","","boxoffice");
 			
 						
 						}
-						?>	
+						?>
+						
+<ul >
+								<li> <a href="editprofile.php"><i class="fa fa-edit" style="font-size:48px;color:blue"></i> Edit profile</a> </li> 
+								</ul>
+						
 						
 		</script>
 	<!--scrolling js-->

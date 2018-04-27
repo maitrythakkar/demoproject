@@ -62,9 +62,6 @@ color:white;
                                 <li>
 									<a href="theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="theater/updateTheater.php">Update Theater</a>
-								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -77,10 +74,7 @@ color:white;
 								<li>
 									<a href="addMovie.php">Add Movie</a>
 								</li>
-								<li>
-									<a href="updateMovie.php">Update Movie</a>
-								</li>
-							</ul>
+									</ul>
 							<!-- /nav-second-level -->
 						</li>
                         	<li>
@@ -92,10 +86,7 @@ color:white;
                                 <li>
 									<a href="show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+														</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -106,9 +97,6 @@ color:white;
 								</li>
 								<li>
 									<a href="screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="screenUpdate.php">Update Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -122,10 +110,7 @@ color:white;
 								<li>
 									<a href="language/languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/language/languageUpdate.php">Update Language</a>
-								</li>
-							</ul>
+															</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -170,56 +155,9 @@ color:white;
     </br>
     </br>
 		<!-- main content start-->
-     <?php
-    if($_SERVER["REQUEST_METHOD"]=="POST")
-    {
-       $con = new mysqli("localhost","root","","boxoffice");
-        if($con->connect_error)
-        {
-            echo "something went wrong";
-        }
-      $_pk_Movie_id=$_POST["txtpk_Movie_id"];
-      echo $_pk_Movie_id;
-      $_Movie_name=$_POST["txtMovie_name"];
-      echo $_Movie_name;
-      $_Director=$_POST["txtDirector"];
-      
-      $_Producer=$_POST["txtProducer"];
-      $_Cast=$_POST["txtCast"];
-      $_Duration=$_POST["txtDuration"];
-      $_Story=$_POST["txtStory"];
-      $_Type=$_POST["txtType"];
-      $_fk_Language_id=$_POST["txtfk_Language_id"];
-      $_Rating=$_POST["txtRating"];  
-       $target_dir="shared/images/";
-            $target_file=$target_dir . basename($_FILES["txtpimg"]["name"]);
-            echo $target_file;
-
-            if(move_uploaded_file($_FILES["txtpimg"]["tmp_name"] , $target_file))
-            {  
-   
-                  
-      
-      require 'admin_class.php';
-      $obj=new movie_booking();
-      $res=$obj->addMovie($_pk_Movie_id,$_Movie_name,$_Director,$target_file,$_Producer,$_Cast,$_Duration,$_Story,$_Type,$_fk_Language_id,$_Rating );
-      echo $res;
-      
-      if($res===true)
-      {
-          header('location:movieDb.php');
-      }
-      else
-      {
-          echo "Unsuccessful";
-          
-      }
-            }
-    }
-      ?>
-		<div id="page-wrapper">
+   	<div id="page-wrapper">
 			<div class="main-page">
-	<form role="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+	<form role="form" method="post" action="addMovie1.php" enctype="multipart/form-data">
 								<div class="form-group">
 		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Movie ID</b></label>
 									<input class="form-control" id="register-username"  type="text" name="txtpk_Movie_id" placeholder="Enter Movie ID">
@@ -237,7 +175,7 @@ color:white;
 									<input class="form-control" id="register-password2" type="file" name="txtImg_path" placeholder="Enter Image Path">
 								</div>-->
                                 <div class="form-group">
-                                <input type="file" name="txtpimg" required class="form-control" placeholder="Ente Product Image
+                                <input type="file" name="txtpimg" required class="form-control" placeholder="Select Image
     " aria-label="Amount (to the nearest dollar)">
     </div>
                 	<div class="form-group">
@@ -256,14 +194,25 @@ color:white;
 		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Story</b></label>
 									<input class="form-control" id="register-password2" type="text" name="txtStory" placeholder="Enter Story ">
 								</div>
-                <div class="form-group">
-		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Type</b></label>
-									<input class="form-control" id="register-password2" type="text" name="txtType" placeholder="Enter Type ">
-                </div>
-                <div class="form-group">
-		        				 	<label for="register-username"><i class="icon-user"></i> <b>Enter Language Name</b></label>
-									<input class="form-control" id="register-username"  type="text" name="txtfk_Language_id" placeholder="Enter Language Name">
-								</div>
+                 <div class="form-group">
+    <label for="register-password2">	Enter Type</label>
+    <select class="form-control"  name="txtType " id="register-password2">
+      <option>0 </option>
+      <option>1 </option>
+      
+    </select>
+  </div>
+  			              
+							 <div class="form-group">
+				<label for="register-password2">Enter Language</label>
+				<select class="form-control"  name="txtfk_Language_id" id="register-password2" placeholder="Enter Language ">
+				<option>Hindi </option>
+				<option>English</option>
+				
+				</select>
+  				</div>
+  
+  
                 <div class="form-group">
 		        				 	<label for="register-password2"><i class="icon-lock"></i> <b>Enter Rating</b></label>
 									<input class="form-control" id="register-password2" type="text" name="txtRating" placeholder="Enter Rating">

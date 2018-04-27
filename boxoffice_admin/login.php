@@ -25,7 +25,7 @@ elseif ($_Password=="") {
 else
 {
     $cnn=new mysqli("localhost","root","","boxoffice");
-   $sql="select * from customer_tbl where pk_email_id= '". $_pk_email_id ."' and Password= '". $_Password ."' ";
+   $sql="select * from customer_tbl where pk_email_id= '". $_pk_email_id ."' and Password= '". $_Password ."'  and type=0 ";
 echo $sql;
   echo $_SESSION["$_pk_email_id"];
     $result=$cnn->query($sql);

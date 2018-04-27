@@ -51,9 +51,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../theater/addTheater.php">Add Theater</a>
 								</li>
-								<li>
-									<a href="../theater/updateTheater.php">Update Theater</a>
-								</li>
+								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
@@ -65,9 +63,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="../addMovie.php">Add Movie</a>
-								</li>
-								<li>
-									<a href="../updateMovie.php">Update Movie</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -81,10 +76,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
 									<a href="../show/showAdd.php">Add Show</a>
 								</li>
-								<li>
-									<a href="../show/updateShow.php">Update Show</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
                         <li>
@@ -95,9 +87,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<a href="../screenAdd.php">Add Screen</a>
-								</li>
-								<li>
-									<a href="../screenUpdate.php">Update Screen</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -111,24 +100,20 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="languageAdd.php">Add Language</a>
 								</li>
-								<li>
-									<a href="language/languageUpdate.php">Update Language</a>
-								</li>
-							</ul>
+								</ul>
 							<!-- /nav-second-level -->
 						</li>
-                        <li>
-							<a href="../bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
+                          <li>
+							<a href="../book/bookDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Book<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
+							<a href="../payment/paymentDb.php"><i class="fa fa-cogs nav_icon"></i>Manage Payment<span class="fa arrow"></span></a>
 						</li>
                         <li>
-							<a href="../userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
+							<a href="../user/userDb.php"><i class="fa fa-cogs nav_icon"></i>Manage User<span class="fa arrow"></span></a>
 						</li>
-						
 						<li>
-							<a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
 									<a href="login.html">Login</a>
